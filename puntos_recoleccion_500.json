@@ -1,0 +1,3502 @@
+[
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.065346,
+            -77.022284
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.10535,
+            -76.869128
+        ]
+    },
+    {
+        "nombre": "Ate",
+        "coordenadas": [
+            -12.09312,
+            -77.042938
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.108683,
+            -77.027022
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.053814,
+            -76.84348
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.05089,
+            -77.04375
+        ]
+    },
+    {
+        "nombre": "Villa Maria del Triunfo",
+        "coordenadas": [
+            -12.029503,
+            -77.08701
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.033401,
+            -76.823924
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.040437,
+            -77.093201
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.08994,
+            -77.012072
+        ]
+    },
+    {
+        "nombre": "Magdalena del Mar",
+        "coordenadas": [
+            -12.06021,
+            -76.937419
+        ]
+    },
+    {
+        "nombre": "Ate",
+        "coordenadas": [
+            -12.037132,
+            -76.936335
+        ]
+    },
+    {
+        "nombre": "Pueblo Libre",
+        "coordenadas": [
+            -12.11633,
+            -77.004644
+        ]
+    },
+    {
+        "nombre": "Carabayllo",
+        "coordenadas": [
+            -12.003688,
+            -76.920346
+        ]
+    },
+    {
+        "nombre": "San Martin de Porres",
+        "coordenadas": [
+            -12.029887,
+            -76.877375
+        ]
+    },
+    {
+        "nombre": "Pueblo Libre",
+        "coordenadas": [
+            -12.054157,
+            -76.832769
+        ]
+    },
+    {
+        "nombre": "El Agustino",
+        "coordenadas": [
+            -12.098137,
+            -76.87936
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.067867,
+            -76.830868
+        ]
+    },
+    {
+        "nombre": "El Agustino",
+        "coordenadas": [
+            -12.108079,
+            -76.80529
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.098066,
+            -76.905393
+        ]
+    },
+    {
+        "nombre": "Carabayllo",
+        "coordenadas": [
+            -12.037372,
+            -77.087162
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.181824,
+            -76.88986
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.091448,
+            -76.994108
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.055217,
+            -76.901605
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.140044,
+            -76.88208
+        ]
+    },
+    {
+        "nombre": "Puente Piedra",
+        "coordenadas": [
+            -12.128302,
+            -76.917691
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.179303,
+            -77.098149
+        ]
+    },
+    {
+        "nombre": "San Miguel",
+        "coordenadas": [
+            -12.183428,
+            -77.053061
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.186754,
+            -76.959893
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.053765,
+            -76.986664
+        ]
+    },
+    {
+        "nombre": "Pueblo Libre",
+        "coordenadas": [
+            -12.11548,
+            -77.062795
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.00313,
+            -77.088163
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.108514,
+            -76.884381
+        ]
+    },
+    {
+        "nombre": "Santa Anita",
+        "coordenadas": [
+            -12.186949,
+            -76.805098
+        ]
+    },
+    {
+        "nombre": "San Martin de Porres",
+        "coordenadas": [
+            -12.138664,
+            -77.067469
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.004435,
+            -77.08593
+        ]
+    },
+    {
+        "nombre": "Villa El Salvador",
+        "coordenadas": [
+            -12.043571,
+            -77.002234
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.124246,
+            -76.963184
+        ]
+    },
+    {
+        "nombre": "Bre\u00f1a",
+        "coordenadas": [
+            -12.135943,
+            -77.058875
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.053574,
+            -76.857809
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.129631,
+            -76.905885
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.035029,
+            -76.821643
+        ]
+    },
+    {
+        "nombre": "Bre\u00f1a",
+        "coordenadas": [
+            -12.144378,
+            -77.006681
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.084982,
+            -77.030456
+        ]
+    },
+    {
+        "nombre": "Villa Maria del Triunfo",
+        "coordenadas": [
+            -12.014122,
+            -76.919346
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.033858,
+            -77.000352
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.141794,
+            -77.024176
+        ]
+    },
+    {
+        "nombre": "San Miguel",
+        "coordenadas": [
+            -12.081364,
+            -77.008214
+        ]
+    },
+    {
+        "nombre": "Santa Anita",
+        "coordenadas": [
+            -12.004411,
+            -77.014649
+        ]
+    },
+    {
+        "nombre": "Rimac",
+        "coordenadas": [
+            -12.065059,
+            -76.862805
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.169548,
+            -77.022901
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.078031,
+            -77.027345
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.021144,
+            -76.912883
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.124836,
+            -76.920403
+        ]
+    },
+    {
+        "nombre": "Puente Piedra",
+        "coordenadas": [
+            -12.013343,
+            -77.002306
+        ]
+    },
+    {
+        "nombre": "Pueblo Libre",
+        "coordenadas": [
+            -12.087782,
+            -77.014183
+        ]
+    },
+    {
+        "nombre": "Puente Piedra",
+        "coordenadas": [
+            -12.142648,
+            -76.849775
+        ]
+    },
+    {
+        "nombre": "Carabayllo",
+        "coordenadas": [
+            -12.147176,
+            -76.807556
+        ]
+    },
+    {
+        "nombre": "Cercado de Lima",
+        "coordenadas": [
+            -12.091608,
+            -76.870678
+        ]
+    },
+    {
+        "nombre": "El Agustino",
+        "coordenadas": [
+            -12.103537,
+            -77.025736
+        ]
+    },
+    {
+        "nombre": "Surco",
+        "coordenadas": [
+            -12.184881,
+            -77.021269
+        ]
+    },
+    {
+        "nombre": "Bre\u00f1a",
+        "coordenadas": [
+            -12.004814,
+            -76.915406
+        ]
+    },
+    {
+        "nombre": "Villa El Salvador",
+        "coordenadas": [
+            -12.150872,
+            -76.865472
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.125298,
+            -77.075199
+        ]
+    },
+    {
+        "nombre": "Villa El Salvador",
+        "coordenadas": [
+            -12.192201,
+            -76.984898
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.076238,
+            -76.8907
+        ]
+    },
+    {
+        "nombre": "Bre\u00f1a",
+        "coordenadas": [
+            -12.064185,
+            -77.087099
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.023061,
+            -76.994906
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.150268,
+            -76.934269
+        ]
+    },
+    {
+        "nombre": "El Agustino",
+        "coordenadas": [
+            -12.14456,
+            -77.057969
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.041623,
+            -76.904729
+        ]
+    },
+    {
+        "nombre": "Independencia",
+        "coordenadas": [
+            -12.069632,
+            -76.849795
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.025091,
+            -76.833424
+        ]
+    },
+    {
+        "nombre": "San Martin de Porres",
+        "coordenadas": [
+            -12.177329,
+            -77.053519
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.034398,
+            -76.811145
+        ]
+    },
+    {
+        "nombre": "Villa El Salvador",
+        "coordenadas": [
+            -12.182223,
+            -76.881562
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.180102,
+            -77.07313
+        ]
+    },
+    {
+        "nombre": "Villa Maria del Triunfo",
+        "coordenadas": [
+            -12.071491,
+            -76.959031
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.113527,
+            -77.08794
+        ]
+    },
+    {
+        "nombre": "Villa El Salvador",
+        "coordenadas": [
+            -12.031109,
+            -76.989961
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.144789,
+            -77.015389
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.108885,
+            -77.023838
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.090691,
+            -77.058836
+        ]
+    },
+    {
+        "nombre": "Santa Anita",
+        "coordenadas": [
+            -12.110429,
+            -77.072387
+        ]
+    },
+    {
+        "nombre": "Pueblo Libre",
+        "coordenadas": [
+            -12.094094,
+            -76.927225
+        ]
+    },
+    {
+        "nombre": "Carabayllo",
+        "coordenadas": [
+            -12.159699,
+            -77.007793
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.141307,
+            -76.912858
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.056972,
+            -77.071739
+        ]
+    },
+    {
+        "nombre": "Pueblo Libre",
+        "coordenadas": [
+            -12.081413,
+            -77.090264
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.154051,
+            -76.976376
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.188685,
+            -77.024953
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.138185,
+            -76.896479
+        ]
+    },
+    {
+        "nombre": "Surco",
+        "coordenadas": [
+            -12.180341,
+            -77.0545
+        ]
+    },
+    {
+        "nombre": "San Martin de Porres",
+        "coordenadas": [
+            -12.120589,
+            -76.98136
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.134416,
+            -76.9497
+        ]
+    },
+    {
+        "nombre": "San Miguel",
+        "coordenadas": [
+            -12.166669,
+            -76.906805
+        ]
+    },
+    {
+        "nombre": "Ate",
+        "coordenadas": [
+            -12.104995,
+            -76.93444
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.146484,
+            -76.821407
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.169845,
+            -76.969073
+        ]
+    },
+    {
+        "nombre": "Pueblo Libre",
+        "coordenadas": [
+            -12.087426,
+            -76.870601
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.157411,
+            -77.02529
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.110394,
+            -77.035651
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.078356,
+            -76.993933
+        ]
+    },
+    {
+        "nombre": "Magdalena del Mar",
+        "coordenadas": [
+            -12.012773,
+            -76.979483
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.157441,
+            -77.017683
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.026369,
+            -77.037554
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.16293,
+            -77.005635
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.184885,
+            -76.928751
+        ]
+    },
+    {
+        "nombre": "San Martin de Porres",
+        "coordenadas": [
+            -12.097148,
+            -77.043789
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.062488,
+            -76.94321
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.140075,
+            -76.823797
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.134198,
+            -76.955615
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.131095,
+            -76.935025
+        ]
+    },
+    {
+        "nombre": "Magdalena del Mar",
+        "coordenadas": [
+            -12.049841,
+            -77.097554
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.115467,
+            -77.075398
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.177381,
+            -76.984175
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.150342,
+            -76.865561
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.01793,
+            -76.875106
+        ]
+    },
+    {
+        "nombre": "Villa El Salvador",
+        "coordenadas": [
+            -12.032731,
+            -76.988341
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.084461,
+            -76.85208
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.115719,
+            -76.901039
+        ]
+    },
+    {
+        "nombre": "Bre\u00f1a",
+        "coordenadas": [
+            -12.142085,
+            -76.949627
+        ]
+    },
+    {
+        "nombre": "Magdalena del Mar",
+        "coordenadas": [
+            -12.189167,
+            -76.950986
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.114354,
+            -77.061701
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.019322,
+            -77.01476
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.153596,
+            -76.811488
+        ]
+    },
+    {
+        "nombre": "Cercado de Lima",
+        "coordenadas": [
+            -12.032255,
+            -76.965979
+        ]
+    },
+    {
+        "nombre": "Ate",
+        "coordenadas": [
+            -12.128235,
+            -76.825353
+        ]
+    },
+    {
+        "nombre": "Santa Anita",
+        "coordenadas": [
+            -12.145276,
+            -76.969741
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.161546,
+            -77.070367
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.188084,
+            -76.819687
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.083365,
+            -76.872691
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.157524,
+            -76.843528
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.132171,
+            -77.012189
+        ]
+    },
+    {
+        "nombre": "San Miguel",
+        "coordenadas": [
+            -12.140399,
+            -76.871018
+        ]
+    },
+    {
+        "nombre": "Villa Maria del Triunfo",
+        "coordenadas": [
+            -12.160806,
+            -77.045601
+        ]
+    },
+    {
+        "nombre": "Villa El Salvador",
+        "coordenadas": [
+            -12.090477,
+            -76.81474
+        ]
+    },
+    {
+        "nombre": "Puente Piedra",
+        "coordenadas": [
+            -12.160016,
+            -77.023647
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.170296,
+            -76.800998
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.057919,
+            -76.880994
+        ]
+    },
+    {
+        "nombre": "San Miguel",
+        "coordenadas": [
+            -12.150575,
+            -76.80176
+        ]
+    },
+    {
+        "nombre": "San Martin de Porres",
+        "coordenadas": [
+            -12.010233,
+            -77.096632
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.064749,
+            -76.974037
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.1963,
+            -76.992731
+        ]
+    },
+    {
+        "nombre": "Ate",
+        "coordenadas": [
+            -12.078106,
+            -77.064807
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.012025,
+            -76.823096
+        ]
+    },
+    {
+        "nombre": "Villa El Salvador",
+        "coordenadas": [
+            -12.037637,
+            -76.83526
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.072731,
+            -77.000672
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.076548,
+            -76.969786
+        ]
+    },
+    {
+        "nombre": "Pueblo Libre",
+        "coordenadas": [
+            -12.194824,
+            -77.00186
+        ]
+    },
+    {
+        "nombre": "Independencia",
+        "coordenadas": [
+            -12.062982,
+            -77.077868
+        ]
+    },
+    {
+        "nombre": "Carabayllo",
+        "coordenadas": [
+            -12.086384,
+            -76.870933
+        ]
+    },
+    {
+        "nombre": "San Martin de Porres",
+        "coordenadas": [
+            -12.014332,
+            -76.854623
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.18291,
+            -76.874094
+        ]
+    },
+    {
+        "nombre": "Bre\u00f1a",
+        "coordenadas": [
+            -12.09746,
+            -77.06725
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.058973,
+            -76.972126
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.010566,
+            -76.858041
+        ]
+    },
+    {
+        "nombre": "Carabayllo",
+        "coordenadas": [
+            -12.153994,
+            -76.88828
+        ]
+    },
+    {
+        "nombre": "Surco",
+        "coordenadas": [
+            -12.170335,
+            -76.87609
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.040376,
+            -76.916066
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.175588,
+            -77.027806
+        ]
+    },
+    {
+        "nombre": "San Miguel",
+        "coordenadas": [
+            -12.074423,
+            -77.085231
+        ]
+    },
+    {
+        "nombre": "Bre\u00f1a",
+        "coordenadas": [
+            -12.091541,
+            -76.873241
+        ]
+    },
+    {
+        "nombre": "Cercado de Lima",
+        "coordenadas": [
+            -12.128404,
+            -77.029062
+        ]
+    },
+    {
+        "nombre": "Ate",
+        "coordenadas": [
+            -12.001229,
+            -76.805105
+        ]
+    },
+    {
+        "nombre": "Pueblo Libre",
+        "coordenadas": [
+            -12.124893,
+            -76.998037
+        ]
+    },
+    {
+        "nombre": "Cercado de Lima",
+        "coordenadas": [
+            -12.155746,
+            -76.894266
+        ]
+    },
+    {
+        "nombre": "Pueblo Libre",
+        "coordenadas": [
+            -12.028814,
+            -76.964206
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.078365,
+            -77.079981
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.10276,
+            -76.990118
+        ]
+    },
+    {
+        "nombre": "Bre\u00f1a",
+        "coordenadas": [
+            -12.150099,
+            -77.09025
+        ]
+    },
+    {
+        "nombre": "Pueblo Libre",
+        "coordenadas": [
+            -12.143232,
+            -76.866946
+        ]
+    },
+    {
+        "nombre": "Puente Piedra",
+        "coordenadas": [
+            -12.044452,
+            -76.808674
+        ]
+    },
+    {
+        "nombre": "Cercado de Lima",
+        "coordenadas": [
+            -12.028129,
+            -76.820093
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.073347,
+            -76.966886
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.02733,
+            -76.87923
+        ]
+    },
+    {
+        "nombre": "Rimac",
+        "coordenadas": [
+            -12.105889,
+            -76.958325
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.156603,
+            -76.948116
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.170492,
+            -76.828754
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.060943,
+            -76.988789
+        ]
+    },
+    {
+        "nombre": "Puente Piedra",
+        "coordenadas": [
+            -12.084489,
+            -77.056501
+        ]
+    },
+    {
+        "nombre": "Santa Anita",
+        "coordenadas": [
+            -12.185642,
+            -76.954478
+        ]
+    },
+    {
+        "nombre": "Carabayllo",
+        "coordenadas": [
+            -12.085499,
+            -77.018012
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.03851,
+            -76.893387
+        ]
+    },
+    {
+        "nombre": "Carabayllo",
+        "coordenadas": [
+            -12.094345,
+            -76.824628
+        ]
+    },
+    {
+        "nombre": "Cercado de Lima",
+        "coordenadas": [
+            -12.000216,
+            -76.815405
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.161382,
+            -76.919621
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.129373,
+            -76.92487
+        ]
+    },
+    {
+        "nombre": "Cercado de Lima",
+        "coordenadas": [
+            -12.149957,
+            -77.016347
+        ]
+    },
+    {
+        "nombre": "Villa El Salvador",
+        "coordenadas": [
+            -12.025658,
+            -77.055485
+        ]
+    },
+    {
+        "nombre": "Villa Maria del Triunfo",
+        "coordenadas": [
+            -12.165846,
+            -77.093197
+        ]
+    },
+    {
+        "nombre": "Rimac",
+        "coordenadas": [
+            -12.064852,
+            -76.981523
+        ]
+    },
+    {
+        "nombre": "Pueblo Libre",
+        "coordenadas": [
+            -12.196913,
+            -77.004861
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.171693,
+            -77.018004
+        ]
+    },
+    {
+        "nombre": "Puente Piedra",
+        "coordenadas": [
+            -12.170515,
+            -76.931586
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.1995,
+            -76.882278
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.050266,
+            -76.814507
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.051038,
+            -76.84742
+        ]
+    },
+    {
+        "nombre": "Independencia",
+        "coordenadas": [
+            -12.061187,
+            -76.97585
+        ]
+    },
+    {
+        "nombre": "San Martin de Porres",
+        "coordenadas": [
+            -12.135414,
+            -76.960946
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.01706,
+            -76.818054
+        ]
+    },
+    {
+        "nombre": "San Miguel",
+        "coordenadas": [
+            -12.134179,
+            -76.946056
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.155601,
+            -77.084052
+        ]
+    },
+    {
+        "nombre": "Villa Maria del Triunfo",
+        "coordenadas": [
+            -12.085061,
+            -76.800587
+        ]
+    },
+    {
+        "nombre": "Magdalena del Mar",
+        "coordenadas": [
+            -12.159468,
+            -76.924621
+        ]
+    },
+    {
+        "nombre": "Bre\u00f1a",
+        "coordenadas": [
+            -12.010056,
+            -76.963128
+        ]
+    },
+    {
+        "nombre": "Cercado de Lima",
+        "coordenadas": [
+            -12.052225,
+            -76.981767
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.122661,
+            -76.979541
+        ]
+    },
+    {
+        "nombre": "Cercado de Lima",
+        "coordenadas": [
+            -12.081463,
+            -76.806635
+        ]
+    },
+    {
+        "nombre": "Puente Piedra",
+        "coordenadas": [
+            -12.157102,
+            -76.998689
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.126637,
+            -77.00125
+        ]
+    },
+    {
+        "nombre": "Villa Maria del Triunfo",
+        "coordenadas": [
+            -12.168205,
+            -77.07737
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.197152,
+            -77.065849
+        ]
+    },
+    {
+        "nombre": "Villa El Salvador",
+        "coordenadas": [
+            -12.03095,
+            -76.906301
+        ]
+    },
+    {
+        "nombre": "Villa Maria del Triunfo",
+        "coordenadas": [
+            -12.014496,
+            -76.947527
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.094803,
+            -76.972315
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.043694,
+            -77.079945
+        ]
+    },
+    {
+        "nombre": "Surco",
+        "coordenadas": [
+            -12.129582,
+            -76.883725
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.186184,
+            -77.058059
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.015507,
+            -76.804066
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.114399,
+            -76.920721
+        ]
+    },
+    {
+        "nombre": "Bre\u00f1a",
+        "coordenadas": [
+            -12.068424,
+            -77.06713
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.162119,
+            -76.850541
+        ]
+    },
+    {
+        "nombre": "Magdalena del Mar",
+        "coordenadas": [
+            -12.089888,
+            -76.871463
+        ]
+    },
+    {
+        "nombre": "Rimac",
+        "coordenadas": [
+            -12.097592,
+            -76.88453
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.169947,
+            -76.95634
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.172103,
+            -77.069017
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.16268,
+            -76.987378
+        ]
+    },
+    {
+        "nombre": "Villa El Salvador",
+        "coordenadas": [
+            -12.074936,
+            -76.994627
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.071896,
+            -77.035121
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.166211,
+            -76.889426
+        ]
+    },
+    {
+        "nombre": "San Martin de Porres",
+        "coordenadas": [
+            -12.070751,
+            -77.089498
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.068272,
+            -76.878996
+        ]
+    },
+    {
+        "nombre": "Magdalena del Mar",
+        "coordenadas": [
+            -12.087131,
+            -76.948212
+        ]
+    },
+    {
+        "nombre": "San Miguel",
+        "coordenadas": [
+            -12.110866,
+            -77.007698
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.10351,
+            -77.061899
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.180438,
+            -77.095061
+        ]
+    },
+    {
+        "nombre": "El Agustino",
+        "coordenadas": [
+            -12.197971,
+            -76.982393
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.180279,
+            -76.869697
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.083087,
+            -76.950892
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.014717,
+            -77.041502
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.191792,
+            -76.830878
+        ]
+    },
+    {
+        "nombre": "Ate",
+        "coordenadas": [
+            -12.010596,
+            -77.073871
+        ]
+    },
+    {
+        "nombre": "Rimac",
+        "coordenadas": [
+            -12.049573,
+            -76.97625
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.045075,
+            -76.988531
+        ]
+    },
+    {
+        "nombre": "San Miguel",
+        "coordenadas": [
+            -12.024696,
+            -77.024125
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.102089,
+            -76.877957
+        ]
+    },
+    {
+        "nombre": "Magdalena del Mar",
+        "coordenadas": [
+            -12.069956,
+            -76.853308
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.02128,
+            -76.88741
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.149346,
+            -76.832927
+        ]
+    },
+    {
+        "nombre": "Cercado de Lima",
+        "coordenadas": [
+            -12.026044,
+            -76.947121
+        ]
+    },
+    {
+        "nombre": "El Agustino",
+        "coordenadas": [
+            -12.16703,
+            -76.921966
+        ]
+    },
+    {
+        "nombre": "San Martin de Porres",
+        "coordenadas": [
+            -12.086582,
+            -76.901482
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.096013,
+            -76.952569
+        ]
+    },
+    {
+        "nombre": "Carabayllo",
+        "coordenadas": [
+            -12.125171,
+            -76.853575
+        ]
+    },
+    {
+        "nombre": "Villa Maria del Triunfo",
+        "coordenadas": [
+            -12.171401,
+            -77.083318
+        ]
+    },
+    {
+        "nombre": "Pueblo Libre",
+        "coordenadas": [
+            -12.143299,
+            -76.965494
+        ]
+    },
+    {
+        "nombre": "Ate",
+        "coordenadas": [
+            -12.150306,
+            -77.010873
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.045775,
+            -76.94608
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.150332,
+            -76.840707
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.160809,
+            -76.909395
+        ]
+    },
+    {
+        "nombre": "Carabayllo",
+        "coordenadas": [
+            -12.053334,
+            -76.884762
+        ]
+    },
+    {
+        "nombre": "Independencia",
+        "coordenadas": [
+            -12.151282,
+            -76.860521
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.115736,
+            -76.851578
+        ]
+    },
+    {
+        "nombre": "Cercado de Lima",
+        "coordenadas": [
+            -12.050951,
+            -77.091512
+        ]
+    },
+    {
+        "nombre": "Villa Maria del Triunfo",
+        "coordenadas": [
+            -12.030848,
+            -76.921751
+        ]
+    },
+    {
+        "nombre": "Carabayllo",
+        "coordenadas": [
+            -12.070831,
+            -77.03432
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.195824,
+            -76.87955
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.194842,
+            -76.937753
+        ]
+    },
+    {
+        "nombre": "San Miguel",
+        "coordenadas": [
+            -12.103815,
+            -77.099474
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.05682,
+            -76.953348
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.035114,
+            -77.03813
+        ]
+    },
+    {
+        "nombre": "Bre\u00f1a",
+        "coordenadas": [
+            -12.089304,
+            -76.818159
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.093256,
+            -76.973768
+        ]
+    },
+    {
+        "nombre": "Rimac",
+        "coordenadas": [
+            -12.105693,
+            -76.976889
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.077315,
+            -76.930398
+        ]
+    },
+    {
+        "nombre": "Santa Anita",
+        "coordenadas": [
+            -12.013804,
+            -77.034016
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.034242,
+            -77.065899
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.171411,
+            -76.921185
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.054592,
+            -76.935788
+        ]
+    },
+    {
+        "nombre": "Rimac",
+        "coordenadas": [
+            -12.084431,
+            -77.079928
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.110122,
+            -76.957368
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.185999,
+            -76.971851
+        ]
+    },
+    {
+        "nombre": "Cercado de Lima",
+        "coordenadas": [
+            -12.109242,
+            -76.879155
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.08875,
+            -76.930844
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.041638,
+            -77.02886
+        ]
+    },
+    {
+        "nombre": "Carabayllo",
+        "coordenadas": [
+            -12.153414,
+            -76.882852
+        ]
+    },
+    {
+        "nombre": "Independencia",
+        "coordenadas": [
+            -12.136803,
+            -76.821365
+        ]
+    },
+    {
+        "nombre": "Ate",
+        "coordenadas": [
+            -12.060832,
+            -76.856799
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.075266,
+            -76.995262
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.091734,
+            -76.859832
+        ]
+    },
+    {
+        "nombre": "Puente Piedra",
+        "coordenadas": [
+            -12.155908,
+            -77.059795
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.125915,
+            -77.064872
+        ]
+    },
+    {
+        "nombre": "El Agustino",
+        "coordenadas": [
+            -12.084366,
+            -76.867824
+        ]
+    },
+    {
+        "nombre": "Santa Anita",
+        "coordenadas": [
+            -12.181212,
+            -77.002926
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.155595,
+            -76.967382
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.148333,
+            -76.915733
+        ]
+    },
+    {
+        "nombre": "Villa Maria del Triunfo",
+        "coordenadas": [
+            -12.08078,
+            -76.830611
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.01201,
+            -76.807287
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.128798,
+            -76.800893
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.130646,
+            -76.946737
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.013955,
+            -76.926268
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.039416,
+            -77.089349
+        ]
+    },
+    {
+        "nombre": "Villa Maria del Triunfo",
+        "coordenadas": [
+            -12.19625,
+            -77.058589
+        ]
+    },
+    {
+        "nombre": "Independencia",
+        "coordenadas": [
+            -12.084926,
+            -77.010527
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.152883,
+            -77.039682
+        ]
+    },
+    {
+        "nombre": "Magdalena del Mar",
+        "coordenadas": [
+            -12.049409,
+            -76.838381
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.194364,
+            -77.008703
+        ]
+    },
+    {
+        "nombre": "Villa El Salvador",
+        "coordenadas": [
+            -12.194321,
+            -76.9043
+        ]
+    },
+    {
+        "nombre": "Pueblo Libre",
+        "coordenadas": [
+            -12.050804,
+            -76.979999
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.004271,
+            -76.955586
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.192988,
+            -77.019041
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.102053,
+            -76.833199
+        ]
+    },
+    {
+        "nombre": "Magdalena del Mar",
+        "coordenadas": [
+            -12.06673,
+            -76.992322
+        ]
+    },
+    {
+        "nombre": "Cercado de Lima",
+        "coordenadas": [
+            -12.080986,
+            -77.038276
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.076572,
+            -77.045938
+        ]
+    },
+    {
+        "nombre": "San Martin de Porres",
+        "coordenadas": [
+            -12.027721,
+            -77.022617
+        ]
+    },
+    {
+        "nombre": "Carabayllo",
+        "coordenadas": [
+            -12.012504,
+            -76.987143
+        ]
+    },
+    {
+        "nombre": "San Miguel",
+        "coordenadas": [
+            -12.040275,
+            -77.048631
+        ]
+    },
+    {
+        "nombre": "Independencia",
+        "coordenadas": [
+            -12.100045,
+            -76.866015
+        ]
+    },
+    {
+        "nombre": "Villa El Salvador",
+        "coordenadas": [
+            -12.090534,
+            -76.906277
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.09415,
+            -76.881495
+        ]
+    },
+    {
+        "nombre": "San Miguel",
+        "coordenadas": [
+            -12.004186,
+            -76.850001
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.09147,
+            -76.915328
+        ]
+    },
+    {
+        "nombre": "Rimac",
+        "coordenadas": [
+            -12.045025,
+            -77.068073
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.112004,
+            -76.959497
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.11684,
+            -76.896801
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.185211,
+            -76.818499
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.100655,
+            -77.080522
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.127291,
+            -77.099418
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.092714,
+            -77.081263
+        ]
+    },
+    {
+        "nombre": "Surco",
+        "coordenadas": [
+            -12.024074,
+            -76.813758
+        ]
+    },
+    {
+        "nombre": "El Agustino",
+        "coordenadas": [
+            -12.034184,
+            -77.013034
+        ]
+    },
+    {
+        "nombre": "Cercado de Lima",
+        "coordenadas": [
+            -12.117989,
+            -77.038126
+        ]
+    },
+    {
+        "nombre": "Santa Anita",
+        "coordenadas": [
+            -12.096871,
+            -76.833793
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.162442,
+            -77.053551
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.059663,
+            -76.889033
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.018089,
+            -76.851721
+        ]
+    },
+    {
+        "nombre": "Surco",
+        "coordenadas": [
+            -12.111267,
+            -77.063397
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.009291,
+            -76.907639
+        ]
+    },
+    {
+        "nombre": "Rimac",
+        "coordenadas": [
+            -12.048786,
+            -76.991373
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.047952,
+            -76.908344
+        ]
+    },
+    {
+        "nombre": "Ate",
+        "coordenadas": [
+            -12.123544,
+            -76.924147
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.137126,
+            -76.953573
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.107381,
+            -76.952691
+        ]
+    },
+    {
+        "nombre": "San Miguel",
+        "coordenadas": [
+            -12.189756,
+            -76.830035
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.193595,
+            -77.003697
+        ]
+    },
+    {
+        "nombre": "Cercado de Lima",
+        "coordenadas": [
+            -12.190793,
+            -77.075983
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.062352,
+            -76.843056
+        ]
+    },
+    {
+        "nombre": "Villa El Salvador",
+        "coordenadas": [
+            -12.043265,
+            -76.903804
+        ]
+    },
+    {
+        "nombre": "San Martin de Porres",
+        "coordenadas": [
+            -12.165122,
+            -76.8019
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.003163,
+            -77.021808
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.152522,
+            -77.004675
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.16995,
+            -77.004353
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.03343,
+            -76.978005
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.007761,
+            -76.893513
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.003989,
+            -76.931659
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.02292,
+            -76.993474
+        ]
+    },
+    {
+        "nombre": "Cercado de Lima",
+        "coordenadas": [
+            -12.05301,
+            -76.932906
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.037107,
+            -76.913607
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.016076,
+            -77.06611
+        ]
+    },
+    {
+        "nombre": "Villa El Salvador",
+        "coordenadas": [
+            -12.109066,
+            -77.004227
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.053907,
+            -77.056986
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.198035,
+            -77.046723
+        ]
+    },
+    {
+        "nombre": "San Martin de Porres",
+        "coordenadas": [
+            -12.129881,
+            -76.901441
+        ]
+    },
+    {
+        "nombre": "Bre\u00f1a",
+        "coordenadas": [
+            -12.007381,
+            -76.814724
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.197662,
+            -77.047457
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.194456,
+            -76.905855
+        ]
+    },
+    {
+        "nombre": "Santa Anita",
+        "coordenadas": [
+            -12.048216,
+            -76.951171
+        ]
+    },
+    {
+        "nombre": "Independencia",
+        "coordenadas": [
+            -12.142953,
+            -76.930816
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.137864,
+            -76.982231
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.178535,
+            -76.931393
+        ]
+    },
+    {
+        "nombre": "Magdalena del Mar",
+        "coordenadas": [
+            -12.022066,
+            -76.987161
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.177396,
+            -77.092883
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.047245,
+            -76.919848
+        ]
+    },
+    {
+        "nombre": "Ate",
+        "coordenadas": [
+            -12.038009,
+            -77.088053
+        ]
+    },
+    {
+        "nombre": "Surco",
+        "coordenadas": [
+            -12.195823,
+            -76.883407
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.177803,
+            -76.802202
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.115409,
+            -76.938601
+        ]
+    },
+    {
+        "nombre": "Ate",
+        "coordenadas": [
+            -12.152227,
+            -76.833773
+        ]
+    },
+    {
+        "nombre": "Independencia",
+        "coordenadas": [
+            -12.157487,
+            -76.959799
+        ]
+    },
+    {
+        "nombre": "Surco",
+        "coordenadas": [
+            -12.041279,
+            -77.026548
+        ]
+    },
+    {
+        "nombre": "Santa Anita",
+        "coordenadas": [
+            -12.11653,
+            -76.924038
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.109788,
+            -76.835019
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.102769,
+            -76.855057
+        ]
+    },
+    {
+        "nombre": "San Martin de Porres",
+        "coordenadas": [
+            -12.017073,
+            -77.049923
+        ]
+    },
+    {
+        "nombre": "El Agustino",
+        "coordenadas": [
+            -12.181782,
+            -77.075091
+        ]
+    },
+    {
+        "nombre": "Ate",
+        "coordenadas": [
+            -12.00794,
+            -76.876559
+        ]
+    },
+    {
+        "nombre": "Magdalena del Mar",
+        "coordenadas": [
+            -12.03578,
+            -77.023527
+        ]
+    },
+    {
+        "nombre": "San Martin de Porres",
+        "coordenadas": [
+            -12.097967,
+            -76.809099
+        ]
+    },
+    {
+        "nombre": "San Miguel",
+        "coordenadas": [
+            -12.006365,
+            -77.082193
+        ]
+    },
+    {
+        "nombre": "Surco",
+        "coordenadas": [
+            -12.129522,
+            -77.047768
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.090367,
+            -76.962369
+        ]
+    },
+    {
+        "nombre": "Puente Piedra",
+        "coordenadas": [
+            -12.130992,
+            -76.905002
+        ]
+    },
+    {
+        "nombre": "Ate",
+        "coordenadas": [
+            -12.060778,
+            -76.884262
+        ]
+    },
+    {
+        "nombre": "Ate",
+        "coordenadas": [
+            -12.153723,
+            -76.802713
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.090589,
+            -76.855279
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.053101,
+            -76.808018
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.181027,
+            -76.859389
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.069763,
+            -76.83253
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.004771,
+            -76.841743
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.081017,
+            -77.087935
+        ]
+    },
+    {
+        "nombre": "Magdalena del Mar",
+        "coordenadas": [
+            -12.17573,
+            -76.833833
+        ]
+    },
+    {
+        "nombre": "Independencia",
+        "coordenadas": [
+            -12.04049,
+            -77.042892
+        ]
+    },
+    {
+        "nombre": "Independencia",
+        "coordenadas": [
+            -12.069785,
+            -77.03552
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.070973,
+            -77.08631
+        ]
+    },
+    {
+        "nombre": "Rimac",
+        "coordenadas": [
+            -12.032253,
+            -76.949102
+        ]
+    },
+    {
+        "nombre": "Independencia",
+        "coordenadas": [
+            -12.075338,
+            -76.969621
+        ]
+    },
+    {
+        "nombre": "Villa El Salvador",
+        "coordenadas": [
+            -12.105972,
+            -77.032714
+        ]
+    },
+    {
+        "nombre": "Magdalena del Mar",
+        "coordenadas": [
+            -12.041885,
+            -76.810603
+        ]
+    },
+    {
+        "nombre": "Villa Maria del Triunfo",
+        "coordenadas": [
+            -12.027574,
+            -76.824142
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.076458,
+            -77.059159
+        ]
+    },
+    {
+        "nombre": "San Martin de Porres",
+        "coordenadas": [
+            -12.038905,
+            -76.86602
+        ]
+    },
+    {
+        "nombre": "Villa Maria del Triunfo",
+        "coordenadas": [
+            -12.053264,
+            -77.014905
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.080327,
+            -76.827726
+        ]
+    },
+    {
+        "nombre": "Independencia",
+        "coordenadas": [
+            -12.158212,
+            -76.914683
+        ]
+    },
+    {
+        "nombre": "Magdalena del Mar",
+        "coordenadas": [
+            -12.087975,
+            -76.809855
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.153259,
+            -76.867574
+        ]
+    },
+    {
+        "nombre": "El Agustino",
+        "coordenadas": [
+            -12.192182,
+            -76.995659
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.15925,
+            -76.881174
+        ]
+    },
+    {
+        "nombre": "Bre\u00f1a",
+        "coordenadas": [
+            -12.044699,
+            -76.93714
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.169929,
+            -77.061324
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.148513,
+            -76.918783
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.184,
+            -76.95206
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.196597,
+            -76.924821
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.125784,
+            -77.046815
+        ]
+    },
+    {
+        "nombre": "San Martin de Porres",
+        "coordenadas": [
+            -12.102793,
+            -76.952819
+        ]
+    },
+    {
+        "nombre": "Villa El Salvador",
+        "coordenadas": [
+            -12.039676,
+            -76.865887
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.014083,
+            -76.950956
+        ]
+    },
+    {
+        "nombre": "Carabayllo",
+        "coordenadas": [
+            -12.030556,
+            -76.986416
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.151339,
+            -76.815402
+        ]
+    },
+    {
+        "nombre": "Carabayllo",
+        "coordenadas": [
+            -12.171584,
+            -76.930585
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.023069,
+            -76.840177
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.008562,
+            -76.94626
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.132023,
+            -76.99069
+        ]
+    },
+    {
+        "nombre": "Carabayllo",
+        "coordenadas": [
+            -12.193566,
+            -76.831103
+        ]
+    },
+    {
+        "nombre": "San Juan de Miraflores",
+        "coordenadas": [
+            -12.172839,
+            -76.993583
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.153905,
+            -77.091948
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.006795,
+            -76.887238
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.084741,
+            -76.908157
+        ]
+    },
+    {
+        "nombre": "San Miguel",
+        "coordenadas": [
+            -12.082629,
+            -76.88792
+        ]
+    },
+    {
+        "nombre": "Carabayllo",
+        "coordenadas": [
+            -12.143497,
+            -76.818716
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.085724,
+            -76.838549
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.127005,
+            -77.097254
+        ]
+    },
+    {
+        "nombre": "Ate",
+        "coordenadas": [
+            -12.008629,
+            -76.885764
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.126251,
+            -76.874766
+        ]
+    },
+    {
+        "nombre": "El Agustino",
+        "coordenadas": [
+            -12.158533,
+            -76.887999
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.123104,
+            -76.865673
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.171714,
+            -76.817978
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.019719,
+            -76.954698
+        ]
+    },
+    {
+        "nombre": "Barranco",
+        "coordenadas": [
+            -12.156884,
+            -76.861374
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.03668,
+            -76.841286
+        ]
+    },
+    {
+        "nombre": "Ate",
+        "coordenadas": [
+            -12.078694,
+            -76.848031
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.125383,
+            -76.913786
+        ]
+    },
+    {
+        "nombre": "San Miguel",
+        "coordenadas": [
+            -12.14125,
+            -77.056599
+        ]
+    },
+    {
+        "nombre": "San Martin de Porres",
+        "coordenadas": [
+            -12.068193,
+            -76.823788
+        ]
+    },
+    {
+        "nombre": "Puente Piedra",
+        "coordenadas": [
+            -12.075715,
+            -77.074222
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.083328,
+            -76.867102
+        ]
+    },
+    {
+        "nombre": "Rimac",
+        "coordenadas": [
+            -12.189785,
+            -76.850638
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.033121,
+            -76.830843
+        ]
+    },
+    {
+        "nombre": "Magdalena del Mar",
+        "coordenadas": [
+            -12.01099,
+            -76.848165
+        ]
+    },
+    {
+        "nombre": "Bre\u00f1a",
+        "coordenadas": [
+            -12.037704,
+            -76.880866
+        ]
+    },
+    {
+        "nombre": "Cercado de Lima",
+        "coordenadas": [
+            -12.138808,
+            -76.856347
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.1987,
+            -77.09021
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.068485,
+            -76.967031
+        ]
+    },
+    {
+        "nombre": "Jesus Maria",
+        "coordenadas": [
+            -12.186716,
+            -76.846521
+        ]
+    },
+    {
+        "nombre": "Cercado de Lima",
+        "coordenadas": [
+            -12.154091,
+            -76.838745
+        ]
+    },
+    {
+        "nombre": "Puente Piedra",
+        "coordenadas": [
+            -12.109012,
+            -76.978722
+        ]
+    },
+    {
+        "nombre": "El Agustino",
+        "coordenadas": [
+            -12.068754,
+            -76.968199
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.110719,
+            -76.90211
+        ]
+    },
+    {
+        "nombre": "Rimac",
+        "coordenadas": [
+            -12.141676,
+            -77.062285
+        ]
+    },
+    {
+        "nombre": "Independencia",
+        "coordenadas": [
+            -12.096792,
+            -77.009216
+        ]
+    },
+    {
+        "nombre": "Miraflores",
+        "coordenadas": [
+            -12.050823,
+            -76.838855
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.039818,
+            -77.072078
+        ]
+    },
+    {
+        "nombre": "Villa Maria del Triunfo",
+        "coordenadas": [
+            -12.006923,
+            -77.09361
+        ]
+    },
+    {
+        "nombre": "El Agustino",
+        "coordenadas": [
+            -12.045888,
+            -76.899426
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.112092,
+            -77.097438
+        ]
+    },
+    {
+        "nombre": "Bre\u00f1a",
+        "coordenadas": [
+            -12.088819,
+            -76.958753
+        ]
+    },
+    {
+        "nombre": "San Miguel",
+        "coordenadas": [
+            -12.154286,
+            -77.070246
+        ]
+    },
+    {
+        "nombre": "Rimac",
+        "coordenadas": [
+            -12.149395,
+            -77.036408
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.111074,
+            -77.093273
+        ]
+    },
+    {
+        "nombre": "Chorrillos",
+        "coordenadas": [
+            -12.133788,
+            -77.002433
+        ]
+    },
+    {
+        "nombre": "Magdalena del Mar",
+        "coordenadas": [
+            -12.054465,
+            -76.998002
+        ]
+    },
+    {
+        "nombre": "San Isidro",
+        "coordenadas": [
+            -12.017737,
+            -77.006346
+        ]
+    },
+    {
+        "nombre": "San Miguel",
+        "coordenadas": [
+            -12.012101,
+            -76.946319
+        ]
+    },
+    {
+        "nombre": "Magdalena del Mar",
+        "coordenadas": [
+            -12.005684,
+            -76.989379
+        ]
+    },
+    {
+        "nombre": "San Borja",
+        "coordenadas": [
+            -12.062925,
+            -76.858506
+        ]
+    },
+    {
+        "nombre": "Puente Piedra",
+        "coordenadas": [
+            -12.17272,
+            -76.98895
+        ]
+    },
+    {
+        "nombre": "Santa Anita",
+        "coordenadas": [
+            -12.100506,
+            -76.969106
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.17457,
+            -76.969592
+        ]
+    },
+    {
+        "nombre": "Puente Piedra",
+        "coordenadas": [
+            -12.149213,
+            -76.983657
+        ]
+    },
+    {
+        "nombre": "San Juan de Lurigancho",
+        "coordenadas": [
+            -12.14959,
+            -77.047131
+        ]
+    },
+    {
+        "nombre": "Independencia",
+        "coordenadas": [
+            -12.114365,
+            -76.944366
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.001693,
+            -76.826429
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.155969,
+            -77.039256
+        ]
+    },
+    {
+        "nombre": "La Molina",
+        "coordenadas": [
+            -12.162442,
+            -77.035706
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.096414,
+            -76.873533
+        ]
+    },
+    {
+        "nombre": "Los Olivos",
+        "coordenadas": [
+            -12.08459,
+            -77.070856
+        ]
+    },
+    {
+        "nombre": "Comas",
+        "coordenadas": [
+            -12.15781,
+            -76.825835
+        ]
+    },
+    {
+        "nombre": "Lince",
+        "coordenadas": [
+            -12.178933,
+            -77.052516
+        ]
+    }
+]
