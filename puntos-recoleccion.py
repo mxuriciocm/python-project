@@ -28,7 +28,7 @@ print(f"Día actual (español): {current_day_es}")
 
 # Definir los turnos
 turnos = {
-    "Mañana": range(6, 12),
+    "Mañana": range(0, 12),
     "Tarde": range(12, 18),
     "Noche": range(18, 24)
 }
@@ -38,8 +38,8 @@ with open('puntos_recoleccion.json', 'r') as f:
     puntos_recoleccion = json.load(f)
 
 # Cargar vertederos desde un archivo JSON
-# with open('vertederos_100.json', 'r') as f:
-#     vertederos = json.load(f)
+with open('vertederos.json', 'r') as f:
+    vertederos = json.load(f)
 
 # Filtrar puntos de recolección según el día y la hora
 filtered_puntos_recoleccion = [
@@ -48,6 +48,14 @@ filtered_puntos_recoleccion = [
 ]
 
 print(f"Puntos de recolección filtrados: {filtered_puntos_recoleccion}")
+
+# Filtrar vertederos según el día y la hora
+filtered_vertederos = [
+    vertedero for vertedero in vertederos
+    if vertedero['dia'] == current_day_es and current_hour in turnos.get(vertedero['turno'], [])
+]
+
+print(f"Vertederos filtrados: {filtered_vertederos}")
 
 # Crear un mapa con folium centrado en el primer punto de recolección filtrado
 if filtered_puntos_recoleccion:
@@ -63,13 +71,13 @@ for punto in filtered_puntos_recoleccion:
         icon=folium.Icon(color='blue')
     ).add_to(mapa)
 
-# Añadir vertederos al mapa
-# for vertedero in vertederos:
-#     folium.Marker(
-#         location=vertedero['coordenadas'],
-#         popup=vertedero['nombre'],
-#         icon=folium.Icon(color='red')
-#     ).add_to(mapa)
+# Añadir vertederos filtrados al mapa
+for vertedero in filtered_vertederos:
+    folium.Marker(
+        location=[vertedero['latitud'], vertedero['longitud']],
+        popup=vertedero['nombre'],
+        icon=folium.Icon(color='red')
+    ).add_to(mapa)
 
 # Guardar el mapa en un archivo HTML
 mapa.save('ruta_recoleccion_peru.html')
