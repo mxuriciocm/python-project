@@ -104,14 +104,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Punto de Recolección 15",
-        "calle": "Av. Universitaria",
-        "latitud": -12.193844349057184,
-        "longitud": -77.04916648852007,
-        "dia": "Jueves",
-        "turno": "Noche"
-    },
-    {
         "nombre": "Punto de Recolección 16",
         "calle": "Av. Petit Thouars",
         "latitud": -12.105645538777514,
@@ -141,14 +133,6 @@
         "latitud": -12.025376019345329,
         "longitud": -76.99774836558362,
         "dia": "Lunes",
-        "turno": "Mañana"
-    },
-    {
-        "nombre": "Punto de Recolección 21",
-        "calle": "Av. Brasil",
-        "latitud": -12.144564213778192,
-        "longitud": -77.02659822970068,
-        "dia": "Miércoles",
         "turno": "Mañana"
     },
     {
@@ -2096,14 +2080,6 @@
         "turno": "Mañana"
     },
     {
-        "nombre": "Punto de Recolección 268",
-        "calle": "Av. Brasil",
-        "latitud": -12.13739897294325,
-        "longitud": -77.06174004763814,
-        "dia": "Jueves",
-        "turno": "Noche"
-    },
-    {
         "nombre": "Punto de Recolección 269",
         "calle": "Av. Benavides",
         "latitud": -12.152127049934277,
@@ -2341,14 +2317,6 @@
         "latitud": -12.027958057984483,
         "longitud": -76.97779552603419,
         "dia": "Viernes",
-        "turno": "Noche"
-    },
-    {
-        "nombre": "Punto de Recolección 301",
-        "calle": "Av. Salaverry",
-        "latitud": -12.121176299924654,
-        "longitud": -77.04864479031347,
-        "dia": "Jueves",
         "turno": "Noche"
     },
     {
@@ -2749,14 +2717,6 @@
         "latitud": -12.187968462616908,
         "longitud": -77.06880100384019,
         "dia": "Sábado",
-        "turno": "Noche"
-    },
-    {
-        "nombre": "Punto de Recolección 353",
-        "calle": "Av. La Marina",
-        "latitud": -12.117894245538762,
-        "longitud": -77.0879126625527,
-        "dia": "Jueves",
         "turno": "Noche"
     },
     {
@@ -3304,14 +3264,6 @@
         "turno": "Tarde"
     },
     {
-        "nombre": "Punto de Recolección 426",
-        "calle": "Jirón de la Unión",
-        "latitud": -12.009405277440552,
-        "longitud": -77.00537824696848,
-        "dia": "Sábado",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Punto de Recolección 427",
         "calle": "Av. Arequipa",
         "latitud": -12.182917048867237,
@@ -3373,14 +3325,6 @@
         "latitud": -12.079658430219782,
         "longitud": -76.95501717839413,
         "dia": "Miércoles",
-        "turno": "Noche"
-    },
-    {
-        "nombre": "Punto de Recolección 435",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.175117239168511,
-        "longitud": -77.04360823186768,
-        "dia": "Jueves",
         "turno": "Noche"
     },
     {
@@ -5568,14 +5512,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Punto de Recolección 711",
-        "calle": "Av. Pardo y Aliaga",
-        "latitud": -12.039702008574215,
-        "longitud": -77.07458605104824,
-        "dia": "Lunes",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Punto de Recolección 712",
         "calle": "Av. Benavides",
         "latitud": -12.107010024359164,
@@ -5766,14 +5702,6 @@
         "longitud": -76.83164707976766,
         "dia": "Domingo",
         "turno": "Noche"
-    },
-    {
-        "nombre": "Punto de Recolección 736",
-        "calle": "Av. Pardo y Aliaga",
-        "latitud": -12.160640274188978,
-        "longitud": -76.99603830476575,
-        "dia": "Miércoles",
-        "turno": "Tarde"
     },
     {
         "nombre": "Punto de Recolección 737",
@@ -6213,14 +6141,6 @@
         "latitud": -12.141766791894643,
         "longitud": -77.00178148491644,
         "dia": "Domingo",
-        "turno": "Mañana"
-    },
-    {
-        "nombre": "Punto de Recolección 795",
-        "calle": "Av. Universitaria",
-        "latitud": -12.199961085219583,
-        "longitud": -77.09584020407502,
-        "dia": "Viernes",
         "turno": "Mañana"
     },
     {
@@ -6800,14 +6720,6 @@
         "turno": "Tarde"
     },
     {
-        "nombre": "Punto de Recolección 869",
-        "calle": "Av. Pardo y Aliaga",
-        "latitud": -12.097082952841546,
-        "longitud": -77.09868305710768,
-        "dia": "Jueves",
-        "turno": "Noche"
-    },
-    {
         "nombre": "Punto de Recolección 870",
         "calle": "Av. La Marina",
         "latitud": -12.116690656008062,
@@ -7100,14 +7012,6 @@
         "calle": "Av. Pardo y Aliaga",
         "latitud": -12.003341344226731,
         "longitud": -77.07267540383319,
-        "dia": "Domingo",
-        "turno": "Mañana"
-    },
-    {
-        "nombre": "Punto de Recolección 908",
-        "calle": "Av. Petit Thouars",
-        "latitud": -12.139607697644312,
-        "longitud": -76.91792333168544,
         "dia": "Domingo",
         "turno": "Mañana"
     },
@@ -7704,14 +7608,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Punto de Recolección 983",
-        "calle": "Av. Benavides",
-        "latitud": -12.156305532140047,
-        "longitud": -77.00437072800712,
-        "dia": "Viernes",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Punto de Recolección 984",
         "calle": "Av. Javier Prado",
         "latitud": -12.164000844910278,
@@ -7869,14 +7765,6 @@
         "latitud": -12.067267583523362,
         "longitud": -77.02254082904088,
         "dia": "Viernes",
-        "turno": "Noche"
-    },
-    {
-        "nombre": "Punto de Recolección 1004",
-        "calle": "Av. Malecón de la Reserva",
-        "latitud": -12.140774876235021,
-        "longitud": -77.07546380019977,
-        "dia": "Jueves",
         "turno": "Noche"
     },
     {
@@ -8918,14 +8806,6 @@
         "longitud": -77.0796315643181,
         "dia": "Viernes",
         "turno": "Tarde"
-    },
-    {
-        "nombre": "Punto de Recolección 1136",
-        "calle": "Av. Petit Thouars",
-        "latitud": -12.15900841862277,
-        "longitud": -77.04825592869321,
-        "dia": "Jueves",
-        "turno": "Noche"
     },
     {
         "nombre": "Punto de Recolección 1137",
@@ -10144,14 +10024,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Punto de Recolección 1290",
-        "calle": "Jirón de la Unión",
-        "latitud": -12.10983365819316,
-        "longitud": -77.0738069991417,
-        "dia": "Jueves",
-        "turno": "Noche"
-    },
-    {
         "nombre": "Punto de Recolección 1291",
         "calle": "Jirón de la Unión",
         "latitud": -12.164468549350458,
@@ -10190,14 +10062,6 @@
         "longitud": -76.96551386835662,
         "dia": "Miércoles",
         "turno": "Tarde"
-    },
-    {
-        "nombre": "Punto de Recolección 1297",
-        "calle": "Av. Petit Thouars",
-        "latitud": -12.193215584366664,
-        "longitud": -77.09598882706581,
-        "dia": "Jueves",
-        "turno": "Noche"
     },
     {
         "nombre": "Punto de Recolección 1298",
@@ -10718,14 +10582,6 @@
         "longitud": -77.07506593908366,
         "dia": "Domingo",
         "turno": "Tarde"
-    },
-    {
-        "nombre": "Punto de Recolección 1365",
-        "calle": "Av. Pardo y Aliaga",
-        "latitud": -12.14965423623825,
-        "longitud": -77.03638034094514,
-        "dia": "Jueves",
-        "turno": "Noche"
     },
     {
         "nombre": "Punto de Recolección 1366",
