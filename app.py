@@ -8,14 +8,12 @@ import folium
 import os
 import math
 
-# Obtener el día y la hora actual
 def obtener_dia_hora_actual():
-    now = datetime.now()
-    current_day = now.strftime("%A")
-    current_hour = now.hour
-    return current_day, current_hour
+    ahora = datetime.now()
+    dia_actual = ahora.strftime("%A")
+    hora_actual = ahora.hour
+    return dia_actual, hora_actual
 
-# Mapeo de días de inglés a español
 dias_semana = {
     "Monday": "Lunes",
     "Tuesday": "Martes",
@@ -26,26 +24,28 @@ dias_semana = {
     "Sunday": "Domingo"
 }
 
-# Definir los turnos
 turnos = {
     "Mañana": range(0, 12),
     "Tarde": range(12, 18),
     "Noche": range(18, 24)
 }
 
-def cargar_datos(archivo):
-    """Carga datos desde un archivo JSON usando pandas y maneja errores."""
-    if not os.path.exists(archivo):
-        print(f"Error: El archivo '{archivo}' no existe.")
-        return pd.DataFrame()  # Retorna un DataFrame vacío en caso de error
+puntos_recoleccion_path = 'datasets/puntos_recoleccion.json'
+vertederos_path = 'datasets/vertederos.json'
+camiones_path = 'datasets/camiones_basura.json'
+
+def cargar_datos(rutas):
     try:
-        return pd.read_json(archivo)
+        df_recoleccion = pd.read_json(rutas[0])
+        df_vertederos = pd.read_json(rutas[1])
+        df_camiones = pd.read_json(rutas[2])
+        return df_recoleccion, df_vertederos, df_camiones
     except ValueError as e:
-        print(f"Error al cargar el archivo '{archivo}': {e}")
-        return pd.DataFrame()  # Retorna un DataFrame vacío en caso de error
+        print(f"Error al cargar los datos: {e}")
+        return pd.DataFrame(), pd.DataFrame(), pd.DataFrame()
 
 def filtrar_puntos(puntos, dia_actual, hora_actual):
-    """Filtra los puntos según el día y la hora actuales."""
+    """Filtra los puntos de recolección según el día y la hora actuales."""
     return puntos[
         (puntos['dia'] == dia_actual) & 
         (puntos['turno'].isin(turnos.keys())) & 
@@ -53,7 +53,7 @@ def filtrar_puntos(puntos, dia_actual, hora_actual):
     ]
 
 def crear_mapa(puntos_recoleccion, vertederos):
-    """Crea un mapa con puntos de recolección y vertederos."""
+    """Crea un mapa con los puntos de recolección y vertederos."""
     if not puntos_recoleccion.empty:
         mapa = folium.Map(location=[puntos_recoleccion.iloc[0]['latitud'], puntos_recoleccion.iloc[0]['longitud']], zoom_start=12)
         
@@ -79,14 +79,13 @@ def crear_mapa(puntos_recoleccion, vertederos):
 def guardar_mapa(mapa, ruta):
     """Guarda el mapa en un archivo HTML."""
     mapa.save(ruta)
-    
     if os.path.exists(ruta):
         print("Mapa guardado correctamente.")
     else:
         print("Error: El mapa no se guardó.")
 
 def calcular_distancia(lat1, lon1, lat2, lon2):
-    """Calcula la distancia entre dos puntos usando la fórmula de Haversine."""
+    """Calcula la distancia entre dos puntos geográficos."""
     R = 6371  # Radio de la Tierra en km
     dlat = math.radians(lat2 - lat1)
     dlon = math.radians(lon2 - lon1)
@@ -97,23 +96,27 @@ def calcular_distancia(lat1, lon1, lat2, lon2):
     distancia = R * c
     return distancia
 
-class MapWindow(QMainWindow):
-    def __init__(self, html_file_path):
+class VentanaMapa(QMainWindow):
+    def __init__(self, ruta_archivo_html):
         super().__init__()
         self.setWindowTitle('Mapa de Recolección de Residuos')
         self.setGeometry(100, 100, 800, 600)
 
         self.browser = QWebEngineView()
         
-        if os.path.exists(html_file_path):
-            self.browser.setUrl(QUrl.fromLocalFile(os.path.abspath(html_file_path)))  # Usar ruta absoluta
-            print(f"Abriendo el archivo: {html_file_path}")
+        if os.path.exists(ruta_archivo_html):
+            self.browser.setUrl(QUrl.fromLocalFile(os.path.abspath(ruta_archivo_html))) 
+            print(f"Abriendo el archivo: {ruta_archivo_html}")
         else:
             self.mostrar_error("Error: El archivo HTML no existe. Asegúrate de que se haya guardado correctamente.")
 
         self.setCentralWidget(self.browser)
 
-class DistanceCalculator(QWidget):
+    def mostrar_error(self, mensaje):
+        """Muestra un mensaje de error."""
+        QMessageBox.warning(self, 'Error', mensaje)
+
+class CalculadoraDistancia(QWidget):
     def __init__(self):
         super().__init__()
         
@@ -125,17 +128,17 @@ class DistanceCalculator(QWidget):
         self.label2 = QLabel('Coordenadas del Punto 2 (Latitud, Longitud):')
         self.input2 = QLineEdit()
         
-        self.calculate_button = QPushButton('Calcular Distancia')
-        self.calculate_button.clicked.connect(self.calcular_distancia)
+        self.boton_calcular = QPushButton('Calcular Distancia')
+        self.boton_calcular.clicked.connect(self.calcular_distancia)
         
-        self.result_label = QLabel('Distancia: ')
+        self.resultado_label = QLabel('Distancia: ')
         
         layout.addWidget(self.label1)
         layout.addWidget(self.input1)
         layout.addWidget(self.label2)
         layout.addWidget(self.input2)
-        layout.addWidget(self.calculate_button)
-        layout.addWidget(self.result_label)
+        layout.addWidget(self.boton_calcular)
+        layout.addWidget(self.resultado_label)
 
         self.setLayout(layout)
 
@@ -145,61 +148,40 @@ class DistanceCalculator(QWidget):
             lat1, lon1 = map(float, self.input1.text().split(','))
             lat2, lon2 = map(float, self.input2.text().split(','))
             distancia = calcular_distancia(lat1, lon1, lat2, lon2)
-            self.result_label.setText(f'Distancia: {distancia:.2f} km')
+            self.resultado_label.setText(f'Distancia: {distancia:.2f} km')
         except ValueError:
             QMessageBox.warning(self, 'Error', 'Por favor ingrese coordenadas válidas.')
 
 def main():
-    # Obtener día y hora actual
-    current_day_en, current_hour = obtener_dia_hora_actual()
+    dia_actual_en, hora_actual = obtener_dia_hora_actual()
+    dia_actual_es = dias_semana.get(dia_actual_en, "")
+    df_recoleccion, df_vertederos, df_camiones = cargar_datos([puntos_recoleccion_path, vertederos_path, camiones_path])
     
-    # Convertir el día al español
-    current_day_es = dias_semana.get(current_day_en, "")
+    # Filtrar puntos de recolección y vertederos
+    puntos_recoleccion_filtrados = filtrar_puntos(df_recoleccion, dia_actual_es, hora_actual)
+    vertederos_filtrados = filtrar_puntos(df_vertederos, dia_actual_es, hora_actual)
+
+    print(f"Puntos de recolección filtrados: {puntos_recoleccion_filtrados[['nombre', 'latitud', 'longitud']]}")
+    print(f"Vertederos filtrados: {vertederos_filtrados[['nombre', 'latitud', 'longitud']]}")
     
-    # Cargar datos
-    puntos_recoleccion = cargar_datos('puntos_recoleccion.json')
-    vertederos = cargar_datos('vertederos.json')
+    mapa = crear_mapa(puntos_recoleccion_filtrados, vertederos_filtrados)
+    ruta_archivo_html = 'ruta_recoleccion_peru.html'
+    guardar_mapa(mapa, ruta_archivo_html)
 
-    # Filtrar puntos de recolección y vertederos según el día y la hora
-    filtered_puntos_recoleccion = filtrar_puntos(puntos_recoleccion, current_day_es, current_hour)
-    filtered_vertederos = filtrar_puntos(vertederos, current_day_es, current_hour)
-
-    print(f"Puntos de recolección filtrados: {filtered_puntos_recoleccion[['nombre', 'latitud', 'longitud']]}")
-    print(f"Vertederos filtrados: {filtered_vertederos[['nombre', 'latitud', 'longitud']]}")
-
-    # Crear el mapa
-    mapa = crear_mapa(filtered_puntos_recoleccion, filtered_vertederos)
-
-    # Guardar el mapa en un archivo HTML
-    html_file_path = 'ruta_recoleccion_peru.html'
-    guardar_mapa(mapa, html_file_path)
-
-# Ejecutar la aplicación PyQt5
 if __name__ == '__main__':
-    
     app = QApplication(sys.argv)
+    
+    main()     
+    ventana_mapa = VentanaMapa('ruta_recoleccion_peru.html')
+    calculadora_distancia = CalculadoraDistancia()    
+    
+    widget_principal = QWidget()
+    layout_principal = QHBoxLayout() 
+    layout_principal.addWidget(calculadora_distancia) 
+    layout_principal.addWidget(ventana_mapa) 
+    layout_principal.setStretch(0, 1)  
+    layout_principal.setStretch(1, 3) 
+    widget_principal.setLayout(layout_principal)    
+    widget_principal.show()
 
-    main()  # Ejecuta la lógica principal
-    
-    window = MapWindow('ruta_recoleccion_peru.html')
-    
-    distance_calculator = DistanceCalculator()
-    
-    # Mostrar ambas ventanas (mapa y calculadora de distancias) en un layout horizontal
-    main_widget = QWidget()
-    
-    main_layout = QHBoxLayout()  # Cambiar a QHBoxLayout para disposición horizontal
-    
-    main_layout.addWidget(distance_calculator)  # Calculadora de distancias a la izquierda
-    main_layout.addWidget(window)  # Mapa a la derecha
-    
-    # Ajustar el tamaño de los widgets
-    main_layout.setStretch(0, 1)  
-    main_layout.setStretch(1, 3) 
-    
-    main_widget.setLayout(main_layout)
-    
-    main_widget.show()
-
-    
-sys.exit(app.exec_())
+    sys.exit(app.exec_())
