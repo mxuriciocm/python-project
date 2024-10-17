@@ -1,18 +1,11 @@
+import pandas as pd
+import folium
+import heapq
 import sys
-import pandas as pd  
-from datetime import datetime
-from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton
-from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtCore import QUrl 
-import folium  
 import os
-import math
-
-def obtener_dia_hora_actual():
-    ahora = datetime.now()
-    dia_actual = ahora.strftime("%A")
-    hora_actual = ahora.hour
-    return dia_actual, hora_actual
+from PyQt5.QtWidgets import QApplication, QWidget, QHBoxLayout, QVBoxLayout, QLabel, QComboBox, QPushButton, QMessageBox, QMainWindow
+from PyQt5.QtWebEngineWidgets import QWebEngineView
+from PyQt5.QtCore import QUrl
 
 dias_semana = {
     "Monday": "Lunes",
@@ -52,49 +45,101 @@ def filtrar_puntos(puntos, dia_actual, hora_actual):
         (puntos['turno'].apply(lambda x: hora_actual in turnos[x]))
     ]
 
-def crear_mapa(puntos_recoleccion, vertederos):
-    """Crea un mapa con los puntos de recolección y vertederos."""
-    if not puntos_recoleccion.empty:
-        mapa = folium.Map(location=[puntos_recoleccion.iloc[0]['latitud'], puntos_recoleccion.iloc[0]['longitud']], zoom_start=12)
-        
-        for _, punto in puntos_recoleccion.iterrows():
-            folium.Marker(
-                location=[punto['latitud'], punto['longitud']],
-                popup=punto['nombre'],
-                icon=folium.Icon(color='blue')
-            ).add_to(mapa)
-        
-        for _, vertedero in vertederos.iterrows():
-            folium.Marker(
-                location=[vertedero['latitud'], vertedero['longitud']],
-                popup=vertedero['nombre'],
-                icon=folium.Icon(color='red')
-            ).add_to(mapa)
-    else:
-        print("No hay puntos de recolección filtrados. Usando coordenadas por defecto.")
-        mapa = folium.Map(location=[-12.0464, -77.0428], zoom_start=12)  # Coordenadas por defecto
-    
-    return mapa
-
-def guardar_mapa(mapa, ruta):
-    """Guarda el mapa en un archivo HTML."""
-    mapa.save(ruta)
-    if os.path.exists(ruta):
-        print("Mapa guardado correctamente.")
-    else:
-        print("Error: El mapa no se guardó.")
-
 def calcular_distancia(lat1, lon1, lat2, lon2):
     """Calcula la distancia entre dos puntos geográficos."""
-    R = 6371  # Radio de la Tierra en km
-    dlat = math.radians(lat2 - lat1)
-    dlon = math.radians(lon2 - lon1)
+    from geopy.distance import geodesic
+    return geodesic((lat1, lon1), (lat2, lon2)).kilometers
+
+class Nodo:
+    def __init__(self, nombre, latitud, longitud):
+        self.nombre = nombre
+        self.latitud = latitud
+        self.longitud = longitud
+        self.vecinos = []
+
+    def agregar_vecino(self, vecino, distancia):
+        self.vecinos.append((vecino, distancia))
+
+def construir_grafo(puntos_recoleccion, vertederos):
+    nodos = {}
     
-    a = math.sin(dlat / 2) ** 2 + math.cos(math.radians(lat1)) * math.cos(math.radians(lat2)) * math.sin(dlon / 2) ** 2
-    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+    # Crear nodos para puntos de recolección
+    for _, punto in puntos_recoleccion.iterrows():
+        nodos[punto['nombre']] = Nodo(punto['nombre'], punto['latitud'], punto['longitud'])
     
-    distancia = R * c
-    return distancia
+    # Crear nodos para vertederos
+    for _, vertedero in vertederos.iterrows():
+        nodos[vertedero['nombre']] = Nodo(vertedero['nombre'], vertedero['latitud'], vertedero['longitud'])
+    
+    # Conectar nodos con distancias
+    for nodo1 in nodos.values():
+        for nodo2 in nodos.values():
+            if nodo1 != nodo2:
+                distancia = calcular_distancia(nodo1.latitud, nodo1.longitud, nodo2.latitud, nodo2.longitud)
+                nodo1.agregar_vecino(nodo2, distancia)
+    
+    return nodos
+
+def dijkstra(nodos, inicio_nombre, fin_nombre):
+    distancias = {nodo: float('inf') for nodo in nodos}
+    distancias[inicio_nombre] = 0
+    prioridad = [(0, inicio_nombre)]
+    camino = {}
+    
+    while prioridad:
+        distancia_actual, nodo_actual = heapq.heappop(prioridad)
+        
+        if distancia_actual > distancias[nodo_actual]:
+            continue
+        
+        for vecino, peso in nodos[nodo_actual].vecinos:
+            distancia = distancia_actual + peso
+            
+            if distancia < distancias[vecino.nombre]:
+                distancias[vecino.nombre] = distancia
+                camino[vecino.nombre] = nodo_actual
+                heapq.heappush(prioridad, (distancia, vecino.nombre))
+    
+    ruta = []
+    nodo = fin_nombre
+    while nodo:
+        ruta.append(nodo)
+        nodo = camino.get(nodo)
+    
+    return ruta[::-1]
+
+def crear_mapa_con_ruta(puntos_recoleccion, vertederos):
+    """Crea un mapa con los puntos de recolección y vertederos."""
+    
+    mapa = folium.Map(location=[-12.0464, -77.0428], zoom_start=12)  # Coordenadas por defecto
+    
+    # Agregar marcadores para puntos de recolección
+    for _, punto in puntos_recoleccion.iterrows():
+        folium.Marker(
+            location=[punto['latitud'], punto['longitud']],
+            popup=punto['nombre'],
+            icon=folium.Icon(color='blue')
+        ).add_to(mapa)
+    
+    # Agregar marcadores para vertederos
+    for _, vertedero in vertederos.iterrows():
+        folium.Marker(
+            location=[vertedero['latitud'], vertedero['longitud']],
+            popup=vertedero['nombre'],
+            icon=folium.Icon(color='red')
+        ).add_to(mapa)
+
+    return mapa
+
+def guardar_mapa(mapa, ruta_archivo_html):
+    mapa.save(ruta_archivo_html)
+
+def obtener_dia_hora_actual():
+    from datetime import datetime
+    ahora = datetime.now()
+    dia_actual_en = ahora.strftime("%A")
+    hora_actual = ahora.hour
+    return dia_actual_en, hora_actual
 
 class VentanaMapa(QMainWindow):
     def __init__(self, ruta_archivo_html):
@@ -108,70 +153,197 @@ class VentanaMapa(QMainWindow):
             self.browser.setUrl(QUrl.fromLocalFile(os.path.abspath(ruta_archivo_html))) 
             print(f"Abriendo el archivo: {ruta_archivo_html}")
         else:
-            self.mostrar_error("Error: El archivo HTML no existe. Asegúrate de que se haya guardado correctamente.")
+            self.mostrar_error("Error: El archivo HTML no existe.")
 
         self.setCentralWidget(self.browser)
 
     def mostrar_error(self, mensaje):
-        """Muestra un mensaje de error."""
         QMessageBox.warning(self, 'Error', mensaje)
 
 class CalculadoraDistancia(QWidget):
+    def mostrar_ruta_en_mapa(self, ruta):
+        """Muestra la ruta más corta en el mapa."""
+        # Crear un mapa nuevo
+        mapa = folium.Map(location=[-12.0464, -77.0428], zoom_start=12)
+        
+        # Agregar marcadores para cada punto en la ruta
+        for nombre in ruta:
+            nodo = nodos[nombre]
+            folium.Marker(
+                location=[nodo.latitud, nodo.longitud],
+                popup=nodo.nombre,
+                icon=folium.Icon(color='blue')
+            ).add_to(mapa)
+        
+        # Dibujar la ruta
+        puntos = [(nodos[nombre].latitud, nodos[nombre].longitud) for nombre in ruta]
+        folium.PolyLine(puntos, color='green', weight=2.5, opacity=1).add_to(mapa)
+        
+        # Guardar el mapa en un archivo temporal y mostrarlo en el navegador
+        ruta_archivo_html = 'ruta_mas_corta.html'
+        guardar_mapa(mapa, ruta_archivo_html)
+        self.parent().findChild(QWebEngineView).setUrl(QUrl.fromLocalFile(os.path.abspath(ruta_archivo_html)))
     def __init__(self):
         super().__init__()
         
         layout = QVBoxLayout()
         
-        self.label1 = QLabel('Coordenadas del Punto 1 (Latitud, Longitud):')
-        self.input1 = QLineEdit()
+        self.label_inicio = QLabel('Selecciona el Punto de Inicio:')
+        self.combo_inicio = QComboBox()
         
-        self.label2 = QLabel('Coordenadas del Punto 2 (Latitud, Longitud):')
-        self.input2 = QLineEdit()
+        self.label_fin = QLabel('Selecciona el Punto de Fin:')
+        self.combo_fin = QComboBox()
         
-        self.boton_calcular = QPushButton('Calcular Distancia')
-        self.boton_calcular.clicked.connect(self.calcular_distancia)
+        self.boton_calcular = QPushButton('Calcular Distancia y Ruta')
+        self.boton_calcular.clicked.connect(self.calcular_distancia_y_ruta)
         
         self.resultado_label = QLabel('Distancia: ')
         
-        layout.addWidget(self.label1)
-        layout.addWidget(self.input1)
-        layout.addWidget(self.label2)
-        layout.addWidget(self.input2)
+        layout.addWidget(self.label_inicio)
+        layout.addWidget(self.combo_inicio)
+        
+        layout.addWidget(self.label_fin)
+        layout.addWidget(self.combo_fin)
+        
         layout.addWidget(self.boton_calcular)
         layout.addWidget(self.resultado_label)
 
         self.setLayout(layout)
 
-    def calcular_distancia(self):
-        """Calcula y muestra la distancia entre dos puntos."""
-        try:
-            lat1, lon1 = map(float, self.input1.text().split(','))
-            lat2, lon2 = map(float, self.input2.text().split(','))
-            distancia = calcular_distancia(lat1, lon1, lat2, lon2)
-            self.resultado_label.setText(f'Distancia: {distancia:.2f} km')
-        except ValueError:
-            QMessageBox.warning(self, 'Error', 'Por favor ingrese coordenadas válidas.')
+    def cargar_puntos(self, puntos_recoleccion_filtrados, vertederos_filtrados):
+        """Carga los nombres de los puntos en los combo boxes."""
+        
+        # Limpiar las listas antes de agregar nuevos elementos
+        self.combo_inicio.clear()
+        self.combo_fin.clear()
+
+        # Agregar nombres a los combo boxes
+        for _, punto in puntos_recoleccion_filtrados.iterrows():
+            self.combo_inicio.addItem(punto['nombre'])
+            self.combo_fin.addItem(punto['nombre'])
+
+        for _, vertedero in vertederos_filtrados.iterrows():
+            self.combo_inicio.addItem(vertedero['nombre'])
+            self.combo_fin.addItem(vertedero['nombre'])
+
+    def calcular_distancia_y_ruta(self):
+       punto_inicio_nombre = self.combo_inicio.currentText()
+       punto_fin_nombre = self.combo_fin.currentText()
+
+       # Obtener las coordenadas usando el nombre seleccionado del grafo.
+       lat1 , lon1= None , None 
+       lat2 , lon2= None , None 
+
+       for nodo in nodos.values():
+           if nodo.nombre == punto_inicio_nombre:
+               lat1 , lon1= nodo.latitud , nodo.longitud 
+           if nodo.nombre == punto_fin_nombre:
+               lat2 , lon2= nodo.latitud , nodo.longitud 
+
+       if lat1 is not None and lat2 is not None:
+           distancia= calcular_distancia(lat1 , lon1 , lat2 , lon2)
+           self.resultado_label.setText(f'Distancia: {distancia:.2f} km')
+
+           # Calcular la ruta más corta usando Dijkstra.
+           ruta_mas_corta= dijkstra(nodos , punto_inicio_nombre , punto_fin_nombre)
+
+           # Mostrar la ruta en el mapa.
+           self.mostrar_ruta_en_mapa(ruta_mas_corta)
+
+       else:
+           QMessageBox.warning(self , 'Error' , 'No se encontraron las coordenadas.')
+
+def crear_mapa_con_ruta(puntos_recoleccion, vertederos):
+    """Crea un mapa con los puntos de recolección y vertederos, y dibuja las conexiones entre nodos."""
+    
+    mapa = folium.Map(location=[-12.0464, -77.0428], zoom_start=12)  # Coordenadas por defecto
+    
+    # Agregar marcadores para puntos de recolección
+    for _, punto in puntos_recoleccion.iterrows():
+        folium.Marker(
+            location=[punto['latitud'], punto['longitud']],
+            popup=punto['nombre'],
+            icon=folium.Icon(color='blue')
+        ).add_to(mapa)
+    
+    # Agregar marcadores para vertederos
+    for _, vertedero in vertederos.iterrows():
+        folium.Marker(
+            location=[vertedero['latitud'], vertedero['longitud']],
+            popup=vertedero['nombre'],
+            icon=folium.Icon(color='red')
+        ).add_to(mapa)
+
+    # Dibujar las conexiones entre los nodos
+    # for nodo in nodos.values():
+    #     for vecino, distancia in nodo.vecinos:
+    #         folium.PolyLine(
+    #             locations=[(nodo.latitud, nodo.longitud), (vecino.latitud, vecino.longitud)],
+    #             color='green',  # Color de la línea
+    #             weight=2,  # Grosor de la línea
+    #             opacity=0.6  # Opacidad de la línea
+    #         ).add_to(mapa)
+
+    return mapa
 
 def main():
-    dia_actual_en, hora_actual = obtener_dia_hora_actual()
-    dia_actual_es = dias_semana.get(dia_actual_en, "")
-    df_recoleccion, df_vertederos, df_camiones = cargar_datos([puntos_recoleccion_path, vertederos_path, camiones_path])
-    
-    # Filtrar puntos de recolección y vertederos
-    puntos_recoleccion_filtrados = filtrar_puntos(df_recoleccion, dia_actual_es, hora_actual)
-    vertederos_filtrados = filtrar_puntos(df_vertederos, dia_actual_es, hora_actual)
+   dia_actual_en , hora_actual= obtener_dia_hora_actual()
+   dia_actual_es= dias_semana.get(dia_actual_en , "")
+   
+   df_recoleccion , df_vertederos , df_camiones= cargar_datos([puntos_recoleccion_path,
+                                                               vertederos_path,
+                                                               camiones_path])
+   
+   # Filtrar puntos de recolección y vertederos.
+   puntos_recoleccion_filtrados= filtrar_puntos(df_recoleccion,
+                                                 dia_actual_es,
+                                                 hora_actual)
+   
+   vertederos_filtrados= filtrar_puntos(df_vertederos,
+                                         dia_actual_es,
+                                         hora_actual)
 
-    print(f"Puntos de recolección filtrados: {puntos_recoleccion_filtrados[['nombre', 'latitud', 'longitud']]}")
-    print(f"Vertederos filtrados: {vertederos_filtrados[['nombre', 'latitud', 'longitud']]}")
-    
-    mapa = crear_mapa(puntos_recoleccion_filtrados, vertederos_filtrados)
-    ruta_archivo_html = 'ruta_recoleccion_peru.html'
-    guardar_mapa(mapa, ruta_archivo_html)
+   # Construir el grafo con todos los nodos y sus conexiones.
+   global nodos  # Hacer que la variable nodos sea global para accederla en CalculadoraDistancia.
+   nodos= construir_grafo(puntos_recoleccion_filtrados,
+                           vertederos_filtrados)
+
+   # Crear el mapa con los puntos filtrados.
+   mapa = crear_mapa_con_ruta(puntos_recoleccion_filtrados,
+                             vertederos_filtrados,
+                             nodos)
+   ruta_archivo_html= 'ruta_recoleccion_peru.html'
+   guardar_mapa(mapa,ruta_archivo_html)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+
+    dia_actual_en, hora_actual = obtener_dia_hora_actual()
+    dia_actual_es = dias_semana.get(dia_actual_en, "")
     
-    main()     
+    df_recoleccion, df_vertederos, df_camiones = cargar_datos([puntos_recoleccion_path,
+                                                               vertederos_path,
+                                                               camiones_path])
+    
+    # Filtrar puntos de recolección y vertederos.
+    puntos_recoleccion_filtrados = filtrar_puntos(df_recoleccion,
+                                                  dia_actual_es,
+                                                  hora_actual)
+    
+    vertederos_filtrados = filtrar_puntos(df_vertederos,
+                                          dia_actual_es,
+                                          hora_actual)
+
+    global nodos 
+    nodos = construir_grafo(puntos_recoleccion_filtrados,
+                            vertederos_filtrados)
+
+    # Crear el mapa con los puntos filtrados y el grafo.
+    mapa = crear_mapa_con_ruta(puntos_recoleccion_filtrados,
+                               vertederos_filtrados)
+    ruta_archivo_html = 'ruta_recoleccion_peru.html'
+    guardar_mapa(mapa, ruta_archivo_html)
+
     ventana_mapa = VentanaMapa('ruta_recoleccion_peru.html')
     calculadora_distancia = CalculadoraDistancia()    
     
@@ -179,8 +351,10 @@ if __name__ == '__main__':
     layout_principal = QHBoxLayout() 
     layout_principal.addWidget(calculadora_distancia) 
     layout_principal.addWidget(ventana_mapa) 
-    layout_principal.setStretch(0, 1)  
-    layout_principal.setStretch(1, 3) 
+    
+    calculadora_distancia.cargar_puntos(puntos_recoleccion_filtrados,
+                                        vertederos_filtrados)
+
     widget_principal.setLayout(layout_principal)    
     widget_principal.show()
 
