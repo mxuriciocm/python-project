@@ -128,14 +128,6 @@
         "turno": "Mañana"
     },
     {
-        "nombre": "Vertedero 17",
-        "calle": "Av. Arequipa",
-        "latitud": -12.1365343242486,
-        "longitud": -77.08300807915117,
-        "dia": "Viernes",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Vertedero 18",
         "calle": "Av. La Marina",
         "latitud": -12.007397918872442,
@@ -4712,14 +4704,6 @@
         "turno": "Mañana"
     },
     {
-        "nombre": "Vertedero 599",
-        "calle": "Av. Arequipa",
-        "latitud": -12.166524857169101,
-        "longitud": -77.08417869161516,
-        "dia": "Viernes",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Vertedero 600",
         "calle": "Av. La Marina",
         "latitud": -12.123026096276899,
@@ -5872,14 +5856,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 747",
-        "calle": "Av. Arequipa",
-        "latitud": -12.139790918105795,
-        "longitud": -77.09941835510391,
-        "dia": "Viernes",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Vertedero 748",
         "calle": "Av. Arequipa",
         "latitud": -12.126223580198499,
@@ -6478,14 +6454,6 @@
         "longitud": -76.91431291243413,
         "dia": "Viernes",
         "turno": "Noche"
-    },
-    {
-        "nombre": "Vertedero 824",
-        "calle": "Av. La Marina",
-        "latitud": -12.143010359673282,
-        "longitud": -77.0656428712868,
-        "dia": "Viernes",
-        "turno": "Mañana"
     },
     {
         "nombre": "Vertedero 825",
@@ -7677,14 +7645,6 @@
         "latitud": -12.125866588109142,
         "longitud": -77.07822037649582,
         "dia": "Lunes",
-        "turno": "Mañana"
-    },
-    {
-        "nombre": "Vertedero 976",
-        "calle": "Av. Universitaria",
-        "latitud": -12.137713615626728,
-        "longitud": -77.07653502572592,
-        "dia": "Viernes",
         "turno": "Mañana"
     },
     {
