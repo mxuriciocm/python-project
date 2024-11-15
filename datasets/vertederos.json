@@ -8,14 +8,6 @@
         "turno": "Tarde"
     },
     {
-        "nombre": "Vertedero 2",
-        "calle": "Av. Universitaria",
-        "latitud": -12.142998948485188,
-        "longitud": -77.07739690557793,
-        "dia": "Viernes",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 3",
         "calle": "Av. Javier Prado",
         "latitud": -12.12157155807605,
@@ -312,14 +304,6 @@
         "turno": "Tarde"
     },
     {
-        "nombre": "Vertedero 43",
-        "calle": "Av. Brasil",
-        "latitud": -12.187016370737172,
-        "longitud": -77.05576799060273,
-        "dia": "Lunes",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 44",
         "calle": "Av. Javier Prado",
         "latitud": -12.158348573074187,
@@ -384,14 +368,6 @@
         "turno": "Mañana"
     },
     {
-        "nombre": "Vertedero 52",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.155983586184941,
-        "longitud": -77.09657977591212,
-        "dia": "Lunes",
-        "turno": "Noche"
-    },
-    {
         "nombre": "Vertedero 53",
         "calle": "Av. Arequipa",
         "latitud": -12.105299380850779,
@@ -453,14 +429,6 @@
         "latitud": -12.14462778941534,
         "longitud": -76.99380759174707,
         "dia": "Lunes",
-        "turno": "Noche"
-    },
-    {
-        "nombre": "Vertedero 61",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.193367433050758,
-        "longitud": -77.07937729871973,
-        "dia": "Miércoles",
         "turno": "Noche"
     },
     {
@@ -568,14 +536,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 75",
-        "calle": "Av. La Marina",
-        "latitud": -12.104493464278864,
-        "longitud": -77.07726020169505,
-        "dia": "Viernes",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 76",
         "calle": "Av. Javier Prado",
         "latitud": -12.041924804062669,
@@ -632,14 +592,6 @@
         "turno": "Mañana"
     },
     {
-        "nombre": "Vertedero 83",
-        "calle": "Av. Arequipa",
-        "latitud": -12.14361761307978,
-        "longitud": -77.07054634389071,
-        "dia": "Lunes",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Vertedero 84",
         "calle": "Av. La Marina",
         "latitud": -12.169037592242153,
@@ -676,14 +628,6 @@
         "calle": "Av. Universitaria",
         "latitud": -12.093475587198911,
         "longitud": -76.95829220772877,
-        "dia": "Domingo",
-        "turno": "Noche"
-    },
-    {
-        "nombre": "Vertedero 89",
-        "calle": "Av. Brasil",
-        "latitud": -12.099807846495215,
-        "longitud": -77.0851634140692,
         "dia": "Domingo",
         "turno": "Noche"
     },
@@ -848,28 +792,12 @@
         "turno": "Mañana"
     },
     {
-        "nombre": "Vertedero 111",
-        "calle": "Av. Arequipa",
-        "latitud": -12.142372610051835,
-        "longitud": -77.06831500837033,
-        "dia": "Domingo",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 112",
         "calle": "Av. Brasil",
         "latitud": -12.059877748462663,
         "longitud": -77.0002353937201,
         "dia": "Sábado",
         "turno": "Mañana"
-    },
-    {
-        "nombre": "Vertedero 113",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.171896420453672,
-        "longitud": -77.06769959095669,
-        "dia": "Miércoles",
-        "turno": "Tarde"
     },
     {
         "nombre": "Vertedero 114",
@@ -1032,27 +960,11 @@
         "turno": "Tarde"
     },
     {
-        "nombre": "Vertedero 134",
-        "calle": "Av. La Marina",
-        "latitud": -12.153649746556487,
-        "longitud": -77.07521991334437,
-        "dia": "Domingo",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 135",
         "calle": "Av. La Marina",
         "latitud": -12.186385018709757,
         "longitud": -76.99622224893436,
         "dia": "Domingo",
-        "turno": "Mañana"
-    },
-    {
-        "nombre": "Vertedero 136",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.165554149868653,
-        "longitud": -77.05523128445354,
-        "dia": "Sábado",
         "turno": "Mañana"
     },
     {
@@ -1078,14 +990,6 @@
         "longitud": -76.98025191631018,
         "dia": "Lunes",
         "turno": "Noche"
-    },
-    {
-        "nombre": "Vertedero 140",
-        "calle": "Av. Brasil",
-        "latitud": -12.163860762126369,
-        "longitud": -77.07926826954343,
-        "dia": "Martes",
-        "turno": "Mañana"
     },
     {
         "nombre": "Vertedero 141",
@@ -1168,14 +1072,6 @@
         "turno": "Tarde"
     },
     {
-        "nombre": "Vertedero 152",
-        "calle": "Av. Brasil",
-        "latitud": -12.121440519473735,
-        "longitud": -77.08144637604016,
-        "dia": "Miércoles",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Vertedero 153",
         "calle": "Av. Arequipa",
         "latitud": -12.116301404716149,
@@ -1256,28 +1152,12 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 163",
-        "calle": "Av. Brasil",
-        "latitud": -12.157625463588788,
-        "longitud": -77.04325850096534,
-        "dia": "Martes",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 164",
         "calle": "Av. Universitaria",
         "latitud": -12.080575892909449,
         "longitud": -76.98236306313309,
         "dia": "Sábado",
         "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 165",
-        "calle": "Av. Brasil",
-        "latitud": -12.162914237009783,
-        "longitud": -77.05290440779618,
-        "dia": "Martes",
-        "turno": "Noche"
     },
     {
         "nombre": "Vertedero 166",
@@ -1296,28 +1176,12 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 168",
-        "calle": "Av. La Marina",
-        "latitud": -12.130326172010694,
-        "longitud": -77.09653121051467,
-        "dia": "Miércoles",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 169",
         "calle": "Av. Brasil",
         "latitud": -12.150755806615031,
         "longitud": -76.8189616453488,
         "dia": "Lunes",
         "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 170",
-        "calle": "Av. Brasil",
-        "latitud": -12.158400344493872,
-        "longitud": -77.09738668781641,
-        "dia": "Domingo",
-        "turno": "Noche"
     },
     {
         "nombre": "Vertedero 171",
@@ -1381,22 +1245,6 @@
         "latitud": -12.149352531588853,
         "longitud": -76.89466871147799,
         "dia": "Miércoles",
-        "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 179",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.167317345631895,
-        "longitud": -77.03193684786454,
-        "dia": "Jueves",
-        "turno": "Noche"
-    },
-    {
-        "nombre": "Vertedero 180",
-        "calle": "Av. Universitaria",
-        "latitud": -12.159438513202934,
-        "longitud": -77.06692057966303,
-        "dia": "Sábado",
         "turno": "Tarde"
     },
     {
@@ -1480,14 +1328,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 191",
-        "calle": "Av. Brasil",
-        "latitud": -12.129115390900457,
-        "longitud": -77.09045449111593,
-        "dia": "Lunes",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 192",
         "calle": "Av. La Marina",
         "latitud": -12.032379631254825,
@@ -1504,14 +1344,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 194",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.15136679515925,
-        "longitud": -77.08144214137702,
-        "dia": "Miércoles",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 195",
         "calle": "Av. Javier Prado",
         "latitud": -12.001796790035788,
@@ -1526,22 +1358,6 @@
         "longitud": -77.06281424634194,
         "dia": "Domingo",
         "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 197",
-        "calle": "Av. Universitaria",
-        "latitud": -12.169322906091866,
-        "longitud": -77.09095388607912,
-        "dia": "Viernes",
-        "turno": "Noche"
-    },
-    {
-        "nombre": "Vertedero 198",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.196566017621791,
-        "longitud": -77.08948725769946,
-        "dia": "Miércoles",
-        "turno": "Mañana"
     },
     {
         "nombre": "Vertedero 199",
@@ -1566,14 +1382,6 @@
         "longitud": -76.97078165565183,
         "dia": "Jueves",
         "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 202",
-        "calle": "Av. Arequipa",
-        "latitud": -12.159026802710184,
-        "longitud": -77.0626668537918,
-        "dia": "Sábado",
-        "turno": "Mañana"
     },
     {
         "nombre": "Vertedero 203",
@@ -1832,14 +1640,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 237",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.183941735381179,
-        "longitud": -77.0957585212025,
-        "dia": "Lunes",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Vertedero 238",
         "calle": "Av. Javier Prado",
         "latitud": -12.125726273390338,
@@ -1862,14 +1662,6 @@
         "longitud": -76.86207042381872,
         "dia": "Lunes",
         "turno": "Noche"
-    },
-    {
-        "nombre": "Vertedero 241",
-        "calle": "Av. Arequipa",
-        "latitud": -12.133048297833724,
-        "longitud": -77.08672281499715,
-        "dia": "Miércoles",
-        "turno": "Tarde"
     },
     {
         "nombre": "Vertedero 242",
@@ -2088,14 +1880,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 269",
-        "calle": "Av. La Marina",
-        "latitud": -12.119900217757515,
-        "longitud": -77.07501803639393,
-        "dia": "Sábado",
-        "turno": "Noche"
-    },
-    {
         "nombre": "Vertedero 270",
         "calle": "Av. La Marina",
         "latitud": -12.135782064454082,
@@ -2125,14 +1909,6 @@
         "latitud": -12.1756322161552,
         "longitud": -76.84821428313481,
         "dia": "Domingo",
-        "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 274",
-        "calle": "Av. Universitaria",
-        "latitud": -12.189594595008131,
-        "longitud": -77.06696048039089,
-        "dia": "Martes",
         "turno": "Tarde"
     },
     {
@@ -2464,14 +2240,6 @@
         "turno": "Tarde"
     },
     {
-        "nombre": "Vertedero 317",
-        "calle": "Av. Brasil",
-        "latitud": -12.144751460302933,
-        "longitud": -77.06500212247195,
-        "dia": "Martes",
-        "turno": "Noche"
-    },
-    {
         "nombre": "Vertedero 318",
         "calle": "Av. Arequipa",
         "latitud": -12.137129738267777,
@@ -2485,14 +2253,6 @@
         "latitud": -12.0825482115422,
         "longitud": -77.00126140454829,
         "dia": "Miércoles",
-        "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 320",
-        "calle": "Av. Brasil",
-        "latitud": -12.13109333672365,
-        "longitud": -77.06613244961133,
-        "dia": "Viernes",
         "turno": "Tarde"
     },
     {
@@ -2568,14 +2328,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 330",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.149779157072148,
-        "longitud": -77.08709435184649,
-        "dia": "Martes",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Vertedero 331",
         "calle": "Av. Arequipa",
         "latitud": -12.111008185200127,
@@ -2598,14 +2350,6 @@
         "longitud": -76.8247925845216,
         "dia": "Sábado",
         "turno": "Mañana"
-    },
-    {
-        "nombre": "Vertedero 334",
-        "calle": "Av. Brasil",
-        "latitud": -12.119403657488025,
-        "longitud": -77.06424941400769,
-        "dia": "Domingo",
-        "turno": "Tarde"
     },
     {
         "nombre": "Vertedero 335",
@@ -2784,14 +2528,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 357",
-        "calle": "Av. La Marina",
-        "latitud": -12.183594331408973,
-        "longitud": -77.0423712352911,
-        "dia": "Sábado",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Vertedero 358",
         "calle": "Av. Brasil",
         "latitud": -12.099058094125871,
@@ -2904,14 +2640,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 372",
-        "calle": "Av. Brasil",
-        "latitud": -12.18846134376638,
-        "longitud": -77.07408355492592,
-        "dia": "Domingo",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 373",
         "calle": "Av. Universitaria",
         "latitud": -12.133071769366216,
@@ -2958,14 +2686,6 @@
         "longitud": -76.97936299139245,
         "dia": "Sábado",
         "turno": "Mañana"
-    },
-    {
-        "nombre": "Vertedero 379",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.108518610523957,
-        "longitud": -77.0699370183661,
-        "dia": "Lunes",
-        "turno": "Noche"
     },
     {
         "nombre": "Vertedero 380",
@@ -3208,14 +2928,6 @@
         "turno": "Mañana"
     },
     {
-        "nombre": "Vertedero 410",
-        "calle": "Av. Universitaria",
-        "latitud": -12.159742305673552,
-        "longitud": -77.07496043909318,
-        "dia": "Martes",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 411",
         "calle": "Av. Brasil",
         "latitud": -12.195702335816858,
@@ -3229,14 +2941,6 @@
         "latitud": -12.128943564205017,
         "longitud": -76.81422217331372,
         "dia": "Jueves",
-        "turno": "Mañana"
-    },
-    {
-        "nombre": "Vertedero 413",
-        "calle": "Av. La Marina",
-        "latitud": -12.182485883427834,
-        "longitud": -77.03662217012324,
-        "dia": "Lunes",
         "turno": "Mañana"
     },
     {
@@ -3352,14 +3056,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 430",
-        "calle": "Av. Arequipa",
-        "latitud": -12.147573001032614,
-        "longitud": -77.0640138493916,
-        "dia": "Domingo",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 431",
         "calle": "Av. Brasil",
         "latitud": -12.057252462375802,
@@ -3446,14 +3142,6 @@
         "longitud": -76.8037708795641,
         "dia": "Jueves",
         "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 442",
-        "calle": "Av. Universitaria",
-        "latitud": -12.188265356075446,
-        "longitud": -77.07885070286052,
-        "dia": "Domingo",
-        "turno": "Noche"
     },
     {
         "nombre": "Vertedero 443",
@@ -3624,14 +3312,6 @@
         "turno": "Tarde"
     },
     {
-        "nombre": "Vertedero 464",
-        "calle": "Av. Arequipa",
-        "latitud": -12.134248721821631,
-        "longitud": -77.077592830044,
-        "dia": "Domingo",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Vertedero 465",
         "calle": "Av. Arequipa",
         "latitud": -12.114816048955356,
@@ -3678,22 +3358,6 @@
         "longitud": -76.85795523943976,
         "dia": "Martes",
         "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 471",
-        "calle": "Av. La Marina",
-        "latitud": -12.184637438294665,
-        "longitud": -77.0605527263454,
-        "dia": "Viernes",
-        "turno": "Noche"
-    },
-    {
-        "nombre": "Vertedero 472",
-        "calle": "Av. Universitaria",
-        "latitud": -12.178561676681033,
-        "longitud": -77.0692742895481,
-        "dia": "Miércoles",
-        "turno": "Noche"
     },
     {
         "nombre": "Vertedero 473",
@@ -3752,14 +3416,6 @@
         "turno": "Mañana"
     },
     {
-        "nombre": "Vertedero 480",
-        "calle": "Av. Universitaria",
-        "latitud": -12.177014098613483,
-        "longitud": -77.03720576809702,
-        "dia": "Sábado",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 481",
         "calle": "Av. Arequipa",
         "latitud": -12.04434992354697,
@@ -3772,14 +3428,6 @@
         "calle": "Av. La Marina",
         "latitud": -12.044213569875987,
         "longitud": -76.83744254515938,
-        "dia": "Lunes",
-        "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 483",
-        "calle": "Av. Universitaria",
-        "latitud": -12.135773534327829,
-        "longitud": -77.0654503848844,
         "dia": "Lunes",
         "turno": "Tarde"
     },
@@ -3840,14 +3488,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 491",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.135682027127668,
-        "longitud": -77.09002784130622,
-        "dia": "Martes",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Vertedero 492",
         "calle": "Av. La Marina",
         "latitud": -12.08319831189227,
@@ -3902,22 +3542,6 @@
         "longitud": -76.9927463541852,
         "dia": "Sábado",
         "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 499",
-        "calle": "Av. Arequipa",
-        "latitud": -12.099388534796114,
-        "longitud": -77.07915802236673,
-        "dia": "Sábado",
-        "turno": "Mañana"
-    },
-    {
-        "nombre": "Vertedero 500",
-        "calle": "Av. Arequipa",
-        "latitud": -12.19537447403415,
-        "longitud": -77.05441024208743,
-        "dia": "Miércoles",
-        "turno": "Mañana"
     },
     {
         "nombre": "Vertedero 501",
@@ -4022,14 +3646,6 @@
         "longitud": -76.81223100637507,
         "dia": "Jueves",
         "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 514",
-        "calle": "Av. La Marina",
-        "latitud": -12.172059890814758,
-        "longitud": -77.0598948360102,
-        "dia": "Domingo",
-        "turno": "Noche"
     },
     {
         "nombre": "Vertedero 515",
@@ -4144,14 +3760,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 529",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.162861421536808,
-        "longitud": -77.07414007047886,
-        "dia": "Domingo",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 530",
         "calle": "Av. Brasil",
         "latitud": -12.090948244963823,
@@ -4165,14 +3773,6 @@
         "latitud": -12.15317343728889,
         "longitud": -76.93792317300581,
         "dia": "Lunes",
-        "turno": "Noche"
-    },
-    {
-        "nombre": "Vertedero 532",
-        "calle": "Av. Arequipa",
-        "latitud": -12.195630236445524,
-        "longitud": -77.05899092110378,
-        "dia": "Martes",
         "turno": "Noche"
     },
     {
@@ -4216,28 +3816,12 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 538",
-        "calle": "Av. Universitaria",
-        "latitud": -12.140158077593064,
-        "longitud": -77.08806141822389,
-        "dia": "Domingo",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 539",
         "calle": "Av. Javier Prado",
         "latitud": -12.024920708606912,
         "longitud": -77.07013682970457,
         "dia": "Jueves",
         "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 540",
-        "calle": "Av. Arequipa",
-        "latitud": -12.156439723041029,
-        "longitud": -77.0654091519332,
-        "dia": "Domingo",
-        "turno": "Noche"
     },
     {
         "nombre": "Vertedero 541",
@@ -4254,14 +3838,6 @@
         "longitud": -76.96137778581884,
         "dia": "Viernes",
         "turno": "Mañana"
-    },
-    {
-        "nombre": "Vertedero 543",
-        "calle": "Av. Universitaria",
-        "latitud": -12.113150578491453,
-        "longitud": -77.09865488531233,
-        "dia": "Lunes",
-        "turno": "Tarde"
     },
     {
         "nombre": "Vertedero 544",
@@ -4376,43 +3952,11 @@
         "turno": "Tarde"
     },
     {
-        "nombre": "Vertedero 558",
-        "calle": "Av. Brasil",
-        "latitud": -12.168177725010715,
-        "longitud": -77.09277598554993,
-        "dia": "Lunes",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 559",
         "calle": "Av. Brasil",
         "latitud": -12.102516511842271,
         "longitud": -76.90614311171824,
         "dia": "Lunes",
-        "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 560",
-        "calle": "Av. Universitaria",
-        "latitud": -12.162019471089494,
-        "longitud": -77.02845718360398,
-        "dia": "Miércoles",
-        "turno": "Mañana"
-    },
-    {
-        "nombre": "Vertedero 561",
-        "calle": "Av. Universitaria",
-        "latitud": -12.144092218198487,
-        "longitud": -77.07555793078626,
-        "dia": "Viernes",
-        "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 562",
-        "calle": "Av. Brasil",
-        "latitud": -12.104243331536217,
-        "longitud": -77.0754224203587,
-        "dia": "Viernes",
         "turno": "Tarde"
     },
     {
@@ -4422,14 +3966,6 @@
         "longitud": -76.90430898927526,
         "dia": "Sábado",
         "turno": "Mañana"
-    },
-    {
-        "nombre": "Vertedero 564",
-        "calle": "Av. Universitaria",
-        "latitud": -12.126505923252136,
-        "longitud": -77.03948150702442,
-        "dia": "Domingo",
-        "turno": "Noche"
     },
     {
         "nombre": "Vertedero 565",
@@ -4504,14 +4040,6 @@
         "turno": "Mañana"
     },
     {
-        "nombre": "Vertedero 574",
-        "calle": "Av. Universitaria",
-        "latitud": -12.157014597217941,
-        "longitud": -77.05939402642424,
-        "dia": "Lunes",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Vertedero 575",
         "calle": "Av. La Marina",
         "latitud": -12.137185392474345,
@@ -4560,28 +4088,12 @@
         "turno": "Tarde"
     },
     {
-        "nombre": "Vertedero 581",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.134304050444776,
-        "longitud": -77.09119418691462,
-        "dia": "Sábado",
-        "turno": "Noche"
-    },
-    {
         "nombre": "Vertedero 582",
         "calle": "Av. Javier Prado",
         "latitud": -12.177385678809943,
         "longitud": -76.82907197892918,
         "dia": "Domingo",
         "turno": "Noche"
-    },
-    {
-        "nombre": "Vertedero 583",
-        "calle": "Av. Brasil",
-        "latitud": -12.182152530590628,
-        "longitud": -77.07321274704881,
-        "dia": "Viernes",
-        "turno": "Tarde"
     },
     {
         "nombre": "Vertedero 584",
@@ -4616,14 +4128,6 @@
         "turno": "Tarde"
     },
     {
-        "nombre": "Vertedero 588",
-        "calle": "Av. Universitaria",
-        "latitud": -12.184805914600869,
-        "longitud": -77.07386529515792,
-        "dia": "Viernes",
-        "turno": "Noche"
-    },
-    {
         "nombre": "Vertedero 589",
         "calle": "Av. Brasil",
         "latitud": -12.181568508338069,
@@ -4646,14 +4150,6 @@
         "longitud": -76.97957254207309,
         "dia": "Viernes",
         "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 592",
-        "calle": "Av. Arequipa",
-        "latitud": -12.152408659297642,
-        "longitud": -77.08493907470404,
-        "dia": "Sábado",
-        "turno": "Noche"
     },
     {
         "nombre": "Vertedero 593",
@@ -4702,14 +4198,6 @@
         "longitud": -76.94324828674314,
         "dia": "Sábado",
         "turno": "Mañana"
-    },
-    {
-        "nombre": "Vertedero 600",
-        "calle": "Av. La Marina",
-        "latitud": -12.123026096276899,
-        "longitud": -77.06145553025499,
-        "dia": "Sábado",
-        "turno": "Noche"
     },
     {
         "nombre": "Vertedero 601",
@@ -4821,14 +4309,6 @@
         "latitud": -12.188192070903622,
         "longitud": -76.86903061116173,
         "dia": "Lunes",
-        "turno": "Mañana"
-    },
-    {
-        "nombre": "Vertedero 615",
-        "calle": "Av. Universitaria",
-        "latitud": -12.182626303782632,
-        "longitud": -77.04947991967272,
-        "dia": "Martes",
         "turno": "Mañana"
     },
     {
@@ -4944,14 +4424,6 @@
         "turno": "Tarde"
     },
     {
-        "nombre": "Vertedero 630",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.182337446169699,
-        "longitud": -77.09307153799942,
-        "dia": "Viernes",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 631",
         "calle": "Av. Arequipa",
         "latitud": -12.132157923426423,
@@ -4960,44 +4432,12 @@
         "turno": "Mañana"
     },
     {
-        "nombre": "Vertedero 632",
-        "calle": "Av. Universitaria",
-        "latitud": -12.134558997025843,
-        "longitud": -77.06099152841203,
-        "dia": "Miércoles",
-        "turno": "Noche"
-    },
-    {
-        "nombre": "Vertedero 633",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.146545179514073,
-        "longitud": -77.06228970663157,
-        "dia": "Miércoles",
-        "turno": "Mañana"
-    },
-    {
-        "nombre": "Vertedero 634",
-        "calle": "Av. Universitaria",
-        "latitud": -12.137499325904916,
-        "longitud": -77.09297547077227,
-        "dia": "Martes",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 635",
         "calle": "Av. La Marina",
         "latitud": -12.069464531424918,
         "longitud": -76.82004397060363,
         "dia": "Sábado",
         "turno": "Noche"
-    },
-    {
-        "nombre": "Vertedero 636",
-        "calle": "Av. Brasil",
-        "latitud": -12.11663370709445,
-        "longitud": -77.09726343861198,
-        "dia": "Sábado",
-        "turno": "Mañana"
     },
     {
         "nombre": "Vertedero 637",
@@ -5022,14 +4462,6 @@
         "longitud": -76.80582764297924,
         "dia": "Miércoles",
         "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 640",
-        "calle": "Av. Brasil",
-        "latitud": -12.166732195693491,
-        "longitud": -77.08575413042112,
-        "dia": "Lunes",
-        "turno": "Noche"
     },
     {
         "nombre": "Vertedero 641",
@@ -5096,14 +4528,6 @@
         "turno": "Tarde"
     },
     {
-        "nombre": "Vertedero 649",
-        "calle": "Av. Universitaria",
-        "latitud": -12.161563411010498,
-        "longitud": -77.02679885720606,
-        "dia": "Domingo",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 650",
         "calle": "Av. Brasil",
         "latitud": -12.00869802257233,
@@ -5118,14 +4542,6 @@
         "longitud": -76.98670096299499,
         "dia": "Jueves",
         "turno": "Noche"
-    },
-    {
-        "nombre": "Vertedero 652",
-        "calle": "Av. Brasil",
-        "latitud": -12.176534812763261,
-        "longitud": -77.08766319219649,
-        "dia": "Domingo",
-        "turno": "Tarde"
     },
     {
         "nombre": "Vertedero 653",
@@ -5150,14 +4566,6 @@
         "longitud": -76.97816798822653,
         "dia": "Viernes",
         "turno": "Noche"
-    },
-    {
-        "nombre": "Vertedero 656",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.171869667441541,
-        "longitud": -77.08737358450993,
-        "dia": "Martes",
-        "turno": "Mañana"
     },
     {
         "nombre": "Vertedero 657",
@@ -5280,14 +4688,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 672",
-        "calle": "Av. Universitaria",
-        "latitud": -12.120668982885382,
-        "longitud": -77.05276025395787,
-        "dia": "Domingo",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Vertedero 673",
         "calle": "Av. Javier Prado",
         "latitud": -12.175659267744273,
@@ -5360,14 +4760,6 @@
         "turno": "Mañana"
     },
     {
-        "nombre": "Vertedero 682",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.153071849716794,
-        "longitud": -77.05789723449585,
-        "dia": "Lunes",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 683",
         "calle": "Av. Javier Prado",
         "latitud": -12.156269851077399,
@@ -5424,14 +4816,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 690",
-        "calle": "Av. Arequipa",
-        "latitud": -12.156314300562375,
-        "longitud": -77.05858515269415,
-        "dia": "Viernes",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 691",
         "calle": "Av. Universitaria",
         "latitud": -12.019865368925027,
@@ -5472,14 +4856,6 @@
         "turno": "Mañana"
     },
     {
-        "nombre": "Vertedero 696",
-        "calle": "Av. Universitaria",
-        "latitud": -12.189664011353807,
-        "longitud": -77.04246714686701,
-        "dia": "Martes",
-        "turno": "Noche"
-    },
-    {
         "nombre": "Vertedero 697",
         "calle": "Av. Universitaria",
         "latitud": -12.062534526988372,
@@ -5501,14 +4877,6 @@
         "latitud": -12.035150763246158,
         "longitud": -76.88951748240663,
         "dia": "Sábado",
-        "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 700",
-        "calle": "Av. Brasil",
-        "latitud": -12.11477851746028,
-        "longitud": -77.06114659582998,
-        "dia": "Domingo",
         "turno": "Tarde"
     },
     {
@@ -5662,14 +5030,6 @@
         "longitud": -76.92558894976725,
         "dia": "Sábado",
         "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 721",
-        "calle": "Av. La Marina",
-        "latitud": -12.115281098530742,
-        "longitud": -77.05763358404643,
-        "dia": "Domingo",
-        "turno": "Noche"
     },
     {
         "nombre": "Vertedero 722",
@@ -5968,14 +5328,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 762",
-        "calle": "Av. La Marina",
-        "latitud": -12.148890640792583,
-        "longitud": -77.03463246275305,
-        "dia": "Domingo",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Vertedero 763",
         "calle": "Av. Javier Prado",
         "latitud": -12.000180916074159,
@@ -5990,14 +5342,6 @@
         "longitud": -77.01986214245476,
         "dia": "Martes",
         "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 765",
-        "calle": "Av. Universitaria",
-        "latitud": -12.12420563834499,
-        "longitud": -77.07589998249279,
-        "dia": "Domingo",
-        "turno": "Noche"
     },
     {
         "nombre": "Vertedero 766",
@@ -6096,14 +5440,6 @@
         "turno": "Tarde"
     },
     {
-        "nombre": "Vertedero 778",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.194441244629123,
-        "longitud": -77.05722398943774,
-        "dia": "Miércoles",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Vertedero 779",
         "calle": "Av. Javier Prado",
         "latitud": -12.09930470707277,
@@ -6182,14 +5518,6 @@
         "longitud": -76.8287775726778,
         "dia": "Sábado",
         "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 789",
-        "calle": "Av. La Marina",
-        "latitud": -12.154323361807895,
-        "longitud": -77.09343565470095,
-        "dia": "Miércoles",
-        "turno": "Noche"
     },
     {
         "nombre": "Vertedero 790",
@@ -6296,14 +5624,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 804",
-        "calle": "Av. Arequipa",
-        "latitud": -12.135087033762746,
-        "longitud": -77.06057447908685,
-        "dia": "Lunes",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 805",
         "calle": "Av. Arequipa",
         "latitud": -12.119724887712835,
@@ -6333,14 +5653,6 @@
         "latitud": -12.170432493797321,
         "longitud": -77.01142283947965,
         "dia": "Lunes",
-        "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 809",
-        "calle": "Av. La Marina",
-        "latitud": -12.182565699413457,
-        "longitud": -77.04542976335334,
-        "dia": "Martes",
         "turno": "Tarde"
     },
     {
@@ -6608,14 +5920,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 844",
-        "calle": "Av. La Marina",
-        "latitud": -12.144284236446572,
-        "longitud": -77.05003940459333,
-        "dia": "Domingo",
-        "turno": "Noche"
-    },
-    {
         "nombre": "Vertedero 845",
         "calle": "Av. Javier Prado",
         "latitud": -12.08461048840627,
@@ -6800,14 +6104,6 @@
         "turno": "Mañana"
     },
     {
-        "nombre": "Vertedero 868",
-        "calle": "Av. Arequipa",
-        "latitud": -12.127953128016616,
-        "longitud": -77.06153938955309,
-        "dia": "Miércoles",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Vertedero 869",
         "calle": "Av. La Marina",
         "latitud": -12.088074197251649,
@@ -6872,14 +6168,6 @@
         "turno": "Tarde"
     },
     {
-        "nombre": "Vertedero 877",
-        "calle": "Av. Arequipa",
-        "latitud": -12.154827949484172,
-        "longitud": -77.0272681120295,
-        "dia": "Domingo",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Vertedero 878",
         "calle": "Av. Arequipa",
         "latitud": -12.1851856841596,
@@ -6901,14 +6189,6 @@
         "latitud": -12.171215056063811,
         "longitud": -76.91791007741283,
         "dia": "Domingo",
-        "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 881",
-        "calle": "Av. Universitaria",
-        "latitud": -12.179561023674866,
-        "longitud": -77.080567982241,
-        "dia": "Lunes",
         "turno": "Tarde"
     },
     {
@@ -6960,14 +6240,6 @@
         "turno": "Mañana"
     },
     {
-        "nombre": "Vertedero 888",
-        "calle": "Av. Arequipa",
-        "latitud": -12.168772997603899,
-        "longitud": -77.08085224188494,
-        "dia": "Miércoles",
-        "turno": "Noche"
-    },
-    {
         "nombre": "Vertedero 889",
         "calle": "Av. Arequipa",
         "latitud": -12.034663615589324,
@@ -6998,22 +6270,6 @@
         "longitud": -76.9112155863828,
         "dia": "Martes",
         "turno": "Mañana"
-    },
-    {
-        "nombre": "Vertedero 893",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.142193063981018,
-        "longitud": -77.05138013377444,
-        "dia": "Viernes",
-        "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 894",
-        "calle": "Av. Arequipa",
-        "latitud": -12.160435192585071,
-        "longitud": -77.07383635613795,
-        "dia": "Domingo",
-        "turno": "Noche"
     },
     {
         "nombre": "Vertedero 895",
@@ -7069,14 +6325,6 @@
         "latitud": -12.085593740916451,
         "longitud": -76.91331772156151,
         "dia": "Miércoles",
-        "turno": "Noche"
-    },
-    {
-        "nombre": "Vertedero 902",
-        "calle": "Av. La Marina",
-        "latitud": -12.093005104252153,
-        "longitud": -77.09225303516169,
-        "dia": "Martes",
         "turno": "Noche"
     },
     {
@@ -7240,27 +6488,11 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 925",
-        "calle": "Av. Universitaria",
-        "latitud": -12.166414914205442,
-        "longitud": -77.06909888951785,
-        "dia": "Sábado",
-        "turno": "Noche"
-    },
-    {
         "nombre": "Vertedero 926",
         "calle": "Av. La Marina",
         "latitud": -12.057453817918882,
         "longitud": -76.8758027078145,
         "dia": "Jueves",
-        "turno": "Noche"
-    },
-    {
-        "nombre": "Vertedero 927",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.18993536955065,
-        "longitud": -77.07112661555564,
-        "dia": "Lunes",
         "turno": "Noche"
     },
     {
@@ -7310,14 +6542,6 @@
         "longitud": -76.80861588240322,
         "dia": "Jueves",
         "turno": "Mañana"
-    },
-    {
-        "nombre": "Vertedero 934",
-        "calle": "Av. Arequipa",
-        "latitud": -12.156447226406073,
-        "longitud": -77.07368231493832,
-        "dia": "Lunes",
-        "turno": "Noche"
     },
     {
         "nombre": "Vertedero 935",
@@ -7436,14 +6660,6 @@
         "calle": "Av. Javier Prado",
         "latitud": -12.134927601956042,
         "longitud": -76.80342136524439,
-        "dia": "Lunes",
-        "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 950",
-        "calle": "Av. Brasil",
-        "latitud": -12.126621176772344,
-        "longitud": -77.05129710433333,
         "dia": "Lunes",
         "turno": "Tarde"
     },
@@ -7584,14 +6800,6 @@
         "turno": "Noche"
     },
     {
-        "nombre": "Vertedero 968",
-        "calle": "Av. La Marina",
-        "latitud": -12.156676701546113,
-        "longitud": -77.0349999250428,
-        "dia": "Lunes",
-        "turno": "Mañana"
-    },
-    {
         "nombre": "Vertedero 969",
         "calle": "Av. Arequipa",
         "latitud": -12.11087297557591,
@@ -7616,14 +6824,6 @@
         "turno": "Tarde"
     },
     {
-        "nombre": "Vertedero 972",
-        "calle": "Av. Javier Prado",
-        "latitud": -12.131523785546646,
-        "longitud": -77.09028018328334,
-        "dia": "Sábado",
-        "turno": "Tarde"
-    },
-    {
         "nombre": "Vertedero 973",
         "calle": "Av. Arequipa",
         "latitud": -12.189290113739196,
@@ -7637,14 +6837,6 @@
         "latitud": -12.115629285561443,
         "longitud": -76.97966208367103,
         "dia": "Domingo",
-        "turno": "Mañana"
-    },
-    {
-        "nombre": "Vertedero 975",
-        "calle": "Av. La Marina",
-        "latitud": -12.125866588109142,
-        "longitud": -77.07822037649582,
-        "dia": "Lunes",
         "turno": "Mañana"
     },
     {
@@ -7733,14 +6925,6 @@
         "latitud": -12.076959481979557,
         "longitud": -76.90682591996924,
         "dia": "Jueves",
-        "turno": "Tarde"
-    },
-    {
-        "nombre": "Vertedero 989",
-        "calle": "Av. Arequipa",
-        "latitud": -12.181745691690447,
-        "longitud": -77.06521092855655,
-        "dia": "Sábado",
         "turno": "Tarde"
     },
     {

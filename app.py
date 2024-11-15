@@ -64,6 +64,22 @@ def get_routes():
     
     return jsonify({'routes': rutas})
 
+@app.route('/api/vertederos')
+def get_vertederos():
+    dia_actual_en, hora_actual = obtener_dia_hora_actual()
+    dia_actual_es = dias_semana.get(dia_actual_en, "")
+    
+    df_vertederos = pd.read_json(vertederos_path)
+    vertederos_filtrados = filtrar_puntos(df_vertederos, dia_actual_es, hora_actual)
+    vertederos = vertederos_filtrados.to_dict(orient='records')
+    
+    # Convert latitud and longitud to lat and lon for the frontend
+    for vertedero in vertederos:
+        vertedero['lat'] = vertedero.pop('latitud')
+        vertedero['lon'] = vertedero.pop('longitud')
+    
+    return jsonify({'vertederos': vertederos})
+
 def filtrar_puntos(puntos, dia_actual, hora_actual):
     """Filtra los puntos de recolección según el día y la hora actuales."""
     return puntos[
@@ -150,4 +166,4 @@ if __name__ == '__main__':
     global nodos 
     nodos = construir_grafo(puntos_recoleccion_filtrados, vertederos_filtrados)
 
-    app.run(debug=True, host='0.0.0.0', port=8080)  
+    app.run(debug=True, host='0.0.0.0', port=8080)
