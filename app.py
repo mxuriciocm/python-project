@@ -141,21 +141,13 @@ if __name__ == '__main__':
     dia_actual_en, hora_actual = obtener_dia_hora_actual()
     dia_actual_es = dias_semana.get(dia_actual_en, "")
     
-    df_recoleccion, df_vertederos, df_camiones = cargar_datos([puntos_recoleccion_path,
-                                                               vertederos_path,
-                                                               camiones_path])
+    df_recoleccion, df_vertederos, df_camiones = cargar_datos([puntos_recoleccion_path, vertederos_path, camiones_path])
+
+    puntos_recoleccion_filtrados = filtrar_puntos(df_recoleccion, dia_actual_es, hora_actual)
     
-    # Filtrar puntos de recolección y vertederos.
-    puntos_recoleccion_filtrados = filtrar_puntos(df_recoleccion,
-                                                  dia_actual_es,
-                                                  hora_actual)
-    
-    vertederos_filtrados = filtrar_puntos(df_vertederos,
-                                          dia_actual_es,
-                                          hora_actual)
+    vertederos_filtrados = filtrar_puntos(df_vertederos, dia_actual_es, hora_actual)
 
     global nodos 
-    nodos = construir_grafo(puntos_recoleccion_filtrados,
-                            vertederos_filtrados)
+    nodos = construir_grafo(puntos_recoleccion_filtrados, vertederos_filtrados)
 
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=8080)  

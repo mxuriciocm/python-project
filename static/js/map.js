@@ -27,12 +27,12 @@ fetch('/api/data')
             finSelect.add(optionFin);
         });
 
-        // Store points data globally for later use
+        
         window.pointsData = data.points;
     });
 
 function calcularRutas(inicio, fin) {
-    limpiarRutas(); // Limpiar rutas anteriores antes de calcular nuevas rutas
+    limpiarRutas(); 
 
     const inicioPunto = window.pointsData.find(p => p.nombre === inicio);
     const finPunto = window.pointsData.find(p => p.nombre === fin);
