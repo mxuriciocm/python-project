@@ -60,12 +60,25 @@ def get_routes():
     vertedero_nombre = data['vertedero']
     num_puntos = int(data['num_puntos'])
     
+    dia_actual_en, hora_actual = obtener_dia_hora_actual()
+    dia_actual_es = dias_semana.get(dia_actual_en, "")
+    
+    df_recoleccion, df_vertederos, df_camiones = cargar_datos([puntos_recoleccion_path, vertederos_path, camiones_path])
+    
+    puntos_recoleccion_filtrados = filtrar_puntos(df_recoleccion, dia_actual_es, hora_actual)
+    puntos = puntos_recoleccion_filtrados.to_dict(orient='records')
+    
+    # Convert latitud and longitud to lat and lon for the frontend
+    for punto in puntos:
+        punto['lat'] = punto.pop('latitud')
+        punto['lon'] = punto.pop('longitud')
+    vertederos = df_vertederos.to_dict(orient='records')
     vertedero_punto = next((v for v in vertederos if v['nombre'] == vertedero_nombre), None)
     if not vertedero_punto:
         return jsonify({'error': 'Vertedero no válido'}), 400
     
     puntos_cercanos = sorted(
-        points, 
+        puntos, 
         key=lambda p: calcular_distancia(vertedero_punto['lat'], vertedero_punto['lon'], p['lat'], p['lon'])
     )[:num_puntos]
     
