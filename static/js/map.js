@@ -37,13 +37,22 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('/api/vertederos')
         .then(response => response.json())
         .then(data => {
+            const vertederoSelect = document.getElementById('vertedero');
+
             data.vertederos.forEach(vertedero => {
                 L.circleMarker([vertedero.lat, vertedero.lon], {
                     color: 'red',
                     radius: 8
                 }).addTo(map)
                     .bindPopup(`<b>${vertedero.nombre}</b><br>${vertedero.calle}`);
+
+                const optionVertedero = document.createElement('option');
+                optionVertedero.value = vertedero.nombre;
+                optionVertedero.text = vertedero.nombre;
+                vertederoSelect.add(optionVertedero);
             });
+
+            window.vertederosData = data.vertederos;
         })
         .catch(error => console.error('Error fetching vertederos:', error));
 });
