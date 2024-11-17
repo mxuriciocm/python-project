@@ -48,14 +48,12 @@
   <body>
     <h1>Optimización de Rutas de Recolección</h1>
     <div id="controls">
-      <label for="inicio">Inicio:</label>
-      <select id="inicio" name="inicio"></select>
-      <label for="fin">Fin:</label>
-      <select id="fin" name="fin"></select>
       <label for="vertedero">Vertedero:</label>
       <select id="vertedero" name="vertedero"></select>
+      <label for="num_puntos">Número de Puntos:</label>
+      <input type="number" id="num_puntos" name="num_puntos" value="1" />
       <button
-        onclick="calcularRutas(document.getElementById('inicio').value, document.getElementById('fin').value)"
+        onclick="calcularRutas(document.getElementById('vertedero').value, document.getElementById('num_puntos').value)"
       >
         Calcular Rutas
       </button>

@@ -1,7 +1,8 @@
 var rutasLayerGroup;
+var map; // Declare map variable in the global scope
 
 document.addEventListener('DOMContentLoaded', function() {
-    var map = L.map('map').setView([-12.0464, -77.0428], 13);
+    map = L.map('map').setView([-12.0464, -77.0428], 13);
     rutasLayerGroup = L.layerGroup().addTo(map);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -11,27 +12,15 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('/api/data')
         .then(response => response.json())
         .then(data => {
-            const inicioSelect = document.getElementById('inicio');
-            const finSelect = document.getElementById('fin');
-
             data.points.forEach(point => {
                 L.marker([point.lat, point.lon]).addTo(map)
                     .bindPopup(point.nombre)
                     .openPopup();
-
-                const optionInicio = document.createElement('option');
-                optionInicio.value = point.nombre;
-                optionInicio.text = point.nombre;
-                inicioSelect.add(optionInicio);
-
-                const optionFin = document.createElement('option');
-                optionFin.value = point.nombre;
-                optionFin.text = point.nombre;
-                finSelect.add(optionFin);
             });
 
             window.pointsData = data.points;
-        });
+        })
+        .catch(error => console.error('Error fetching data:', error));
 
     // Fetch and display vertederos based on current day and time
     fetch('/api/vertederos')
@@ -57,18 +46,37 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.error('Error fetching vertederos:', error));
 });
 
-function calcularRutas(inicio, fin) {
-    limpiarRutas(); 
+function calcularDistancia(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Radius of the Earth in kilometers
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = 
+        0.5 - Math.cos(dLat)/2 + 
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+        (1 - Math.cos(dLon))/2;
 
-    const inicioPunto = window.pointsData.find(p => p.nombre === inicio);
-    const finPunto = window.pointsData.find(p => p.nombre === fin);
+    return R * 2 * Math.asin(Math.sqrt(a));
+}
 
-    if (!inicioPunto || !finPunto) {
-        alert('Puntos de inicio o fin no válidos');
+function calcularRutas(vertedero, numPuntos) {
+    limpiarRutas();
+
+    const vertederoPunto = window.vertederosData.find(v => v.nombre === vertedero);
+    if (!vertederoPunto) {
+        alert('Vertedero no válido');
         return;
     }
 
-    const osrmUrl = `http://router.project-osrm.org/route/v1/driving/${inicioPunto.lon},${inicioPunto.lat};${finPunto.lon},${finPunto.lat}?overview=full&geometries=geojson&alternatives=true`;
+    const puntosCercanos = window.pointsData
+        .map(p => ({
+            ...p,
+            distancia: calcularDistancia(vertederoPunto.lat, vertederoPunto.lon, p.lat, p.lon)
+        }))
+        .sort((a, b) => a.distancia - b.distancia)
+        .slice(0, numPuntos);
+
+    const waypoints = [vertederoPunto, ...puntosCercanos, vertederoPunto];
+    const osrmUrl = `http://router.project-osrm.org/route/v1/driving/${waypoints.map(p => `${p.lon},${p.lat}`).join(';')}?overview=full&geometries=geojson&alternatives=true`;
 
     fetch(osrmUrl)
         .then(response => response.json())
@@ -80,17 +88,6 @@ function calcularRutas(inicio, fin) {
                     const color = colors[index % colors.length];
                     L.polyline(coordinates, { color: color, weight: 2.5, opacity: 1 }).addTo(rutasLayerGroup);
                 });
-
-                // Add legend
-                const legend = L.control({ position: 'bottomright' });
-                legend.onAdd = function () {
-                    const div = L.DomUtil.create('div', 'info legend');
-                    div.innerHTML += '<i style="background: red"></i> Ruta más corta<br>';
-                    div.innerHTML += '<i style="background: blue"></i> Ruta alternativa 1<br>';
-                    div.innerHTML += '<i style="background: green"></i> Ruta alternativa 2<br>';
-                    return div;
-                };
-                legend.addTo(map); // Ensure the map instance is passed here
             } else {
                 alert('No se encontraron rutas');
             }

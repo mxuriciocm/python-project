@@ -57,10 +57,20 @@ def get_data():
 @app.route('/api/routes', methods=['POST'])
 def get_routes():
     data = request.json
-    inicio_nombre = data['inicio']
-    fin_nombre = data['fin']
+    vertedero_nombre = data['vertedero']
+    num_puntos = int(data['num_puntos'])
     
-    rutas = bellman_ford(nodos, inicio_nombre, fin_nombre)
+    vertedero_punto = next((v for v in vertederos if v['nombre'] == vertedero_nombre), None)
+    if not vertedero_punto:
+        return jsonify({'error': 'Vertedero no válido'}), 400
+    
+    puntos_cercanos = sorted(
+        points, 
+        key=lambda p: calcular_distancia(vertedero_punto['lat'], vertedero_punto['lon'], p['lat'], p['lon'])
+    )[:num_puntos]
+    
+    waypoints = [vertedero_punto] + puntos_cercanos + [vertedero_punto]
+    rutas = bellman_ford(nodos, waypoints)
     
     return jsonify({'routes': rutas})
 
@@ -123,9 +133,9 @@ def construir_grafo(puntos_recoleccion, vertederos):
     
     return nodos
 
-def bellman_ford(nodos, inicio_nombre, fin_nombre):
+def bellman_ford(nodos, waypoints):
     distancias = {nodo: float('inf') for nodo in nodos}
-    distancias[inicio_nombre] = 0
+    distancias[waypoints[0]['nombre']] = 0
     predecesores = {nodo: None for nodo in nodos}
     
     for _ in range(len(nodos) - 1):
@@ -138,7 +148,7 @@ def bellman_ford(nodos, inicio_nombre, fin_nombre):
     rutas = []
     for _ in range(3):  # Obtener hasta 3 rutas
         ruta = []
-        nodo = fin_nombre
+        nodo = waypoints[-1]['nombre']
         while nodo:
             ruta.append(nodo)
             nodo = predecesores[nodo]
