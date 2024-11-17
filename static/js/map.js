@@ -96,6 +96,8 @@ function calcularDistancia(lat1, lon1, lat2, lon2) {
     return R * 2 * Math.asin(Math.sqrt(a));
 }
 
+// ...existing code...
+
 function calcularRutas(vertedero, numPuntos) {
     limpiarRutas();
 
@@ -124,32 +126,49 @@ function calcularRutas(vertedero, numPuntos) {
         console.log('Routes data:', data);
         if (data.routes && data.routes.length > 0) {
             const route = data.routes[0];
-            const coordinates = route.coordinates.map(coord => {
-                return [parseFloat(coord[1]), parseFloat(coord[0])];
-            });
             
-            if (coordinates.length > 1) {
-                // Dibujar la ruta
-                const polyline = L.polyline(coordinates, { 
-                    color: 'blue', 
-                    weight: 2.5, 
-                    opacity: 1 
-                }).addTo(rutasLayerGroup);
+            try {
+                // Decodificar usando mapbox polyline
+                const coordinates = window.polyline.decode(route.geometry);
                 
-                map.fitBounds(polyline.getBounds());
+                // Las coordenadas ya vienen en el formato correcto [lat, lng]
+                if (coordinates.length > 1) {
+                    // Dibujar la ruta siguiendo las calles
+                    const routePolyline = L.polyline(coordinates, { 
+                        color: 'blue', 
+                        weight: 2.5, 
+                        opacity: 1 
+                    }).addTo(rutasLayerGroup);
+                    
+                    map.fitBounds(routePolyline.getBounds());
 
-                // Colocar el camión en el primer punto de la ruta con información
-                displayStaticTruck(coordinates[0], route.camion, route.distancia_total);
-            } else {
-                console.error('Invalid coordinates for polyline:', coordinates);
-                alert('No se encontraron suficientes puntos para generar una ruta');
+                    // Agregar marcadores en los puntos de parada
+                    route.waypoints.forEach(waypoint => {
+                        L.circleMarker([waypoint.lat, waypoint.lon], {
+                            color: 'green',
+                            radius: 5
+                        }).addTo(rutasLayerGroup)
+                        .bindPopup(waypoint.name);
+                    });
+
+                    // Colocar el camión en el primer punto de la ruta
+                    displayStaticTruck(coordinates[0], route.camion, route.distancia_total);
+                }
+            } catch (e) {
+                console.error('Error decodificando ruta:', e);
+                alert('Error al decodificar la ruta');
             }
         } else {
             alert('No se encontraron rutas');
         }
     })
-    .catch(error => console.error('Error fetching routes:', error));
+    .catch(error => {
+        console.error('Error fetching routes:', error);
+        alert('Error al obtener la ruta');
+    });
 }
+
+// ...existing code...
 
 function displayStaticTruck(position, truckInfo, distanciaTotal) {
     if (truckMarker) {

@@ -3,6 +3,8 @@ from mysql.connector import Error
 from flask import Flask, render_template, jsonify, request
 from datetime import datetime
 from sqlalchemy import create_engine
+import requests
+import polyline
 
 app = Flask(__name__)
 
@@ -165,121 +167,152 @@ def seleccionar_mejor_camion(camiones, distancia_total):
     
     return mejor_camion
 
+def get_osrm_route(start_coords, end_coords):
+    """Obtiene la ruta entre dos puntos usando OSRM"""
+    url = f"http://router.project-osrm.org/route/v1/driving/{start_coords[1]},{start_coords[0]};{end_coords[1]},{end_coords[0]}"
+    params = {
+        "overview": "full",
+        "geometries": "polyline",
+        "steps": "true"
+    }
+    response = requests.get(url, params=params)
+    if response.status_code == 200:
+        data = response.json()
+        if data["code"] == "Ok":
+            return {
+                "geometry": data["routes"][0]["geometry"],
+                "distance": data["routes"][0]["distance"] / 1000,  # Convert to km
+                "duration": data["routes"][0]["duration"]
+            }
+    return None
+
 @app.route('/api/routes', methods=['POST'])
 def get_routes():
-    data = request.json
-    vertedero_nombre = data['vertedero']
-    num_puntos = int(data['num_puntos'])
-    hora_actual = int(data.get('hour', datetime.now().hour))
-    
-    # Get current day and shift
-    dia_actual_en, _ = obtener_dia_hora_actual()
-    dia_actual_es = dias_semana.get(dia_actual_en, "")
-
-    # Get points and landfills
-    puntos_recoleccion, vertederos, _ = cargar_datos()
-    vertedero_punto = next((v for v in vertederos if v['nombre'] == vertedero_nombre), None)
-  
-    if not vertedero_punto:
-        return jsonify({'error': 'Vertedero no válido'}), 400
-
-    # Filter and sort collection points
-    puntos_recoleccion_filtrados = filtrar_puntos(puntos_recoleccion, dia_actual_es, hora_actual)
-    puntos_cercanos = sorted(puntos_recoleccion_filtrados, key=lambda x: calcular_distancia(
-        vertedero_punto['latitud'], vertedero_punto['longitud'], x['latitud'], x['longitud']))[:num_puntos]
-    
-    if not puntos_cercanos:
-        return jsonify({'error': 'No hay puntos de recolección disponibles'}), 400
-
-    # Generate route
-    waypoints = [vertedero_punto] + puntos_cercanos
-    print('Waypoints:', waypoints)
-
-    nodos = construir_grafo(puntos_cercanos, [vertedero_punto])
-    
-    # Generar ruta completa
-    ruta_completa = []
-    punto_actual = vertedero_punto['nombre']
-    
-    # Crear una copia de puntos_cercanos para ir eliminando los visitados
-    puntos_pendientes = [p['nombre'] for p in puntos_cercanos]
-    
-    while puntos_pendientes:
-        mejor_distancia = float('inf')
-        mejor_punto = None
-        mejor_ruta = []
+    try:
+        data = request.json
+        vertedero_nombre = data['vertedero']
+        num_puntos = int(data['num_puntos'])
+        hora_actual = int(data.get('hour', datetime.now().hour))
         
-        # Encontrar el punto más cercano no visitado
-        for punto in puntos_pendientes:
-            ruta_actual = bellman_ford(nodos, punto_actual, punto)
-            if ruta_actual:
-                distancia_total = sum(
-                    calcular_distancia(
-                        nodos[ruta_actual[i]].latitud,
-                        nodos[ruta_actual[i]].longitud,
-                        nodos[ruta_actual[i+1]].latitud,
-                        nodos[ruta_actual[i+1]].longitud
-                    )
-                    for i in range(len(ruta_actual)-1)
-                )
-                if distancia_total < mejor_distancia:
-                    mejor_distancia = distancia_total
-                    mejor_punto = punto
-                    mejor_ruta = ruta_actual
+        # Obtener puntos y vertederos
+        puntos_recoleccion, vertederos, _ = cargar_datos()
+        vertedero_punto = next((v for v in vertederos if v['nombre'] == vertedero_nombre), None)
+        
+        if not vertedero_punto:
+            return jsonify({'error': 'Vertedero no válido'}), 400
 
-        if mejor_punto is None:
-            break
+        # Filtrar puntos
+        dia_actual_en, _ = obtener_dia_hora_actual()
+        dia_actual_es = dias_semana.get(dia_actual_en, "")
+        puntos_filtrados = filtrar_puntos(puntos_recoleccion, dia_actual_es, hora_actual)
+        
+        if not puntos_filtrados:
+            return jsonify({'error': 'No hay puntos disponibles'}), 400
+
+        if len(puntos_filtrados) < num_puntos:
+            return jsonify({'error': f'Solo hay {len(puntos_filtrados)} puntos disponibles'}), 400
+
+        # 1. Usar Bellman-Ford para determinar el orden óptimo
+        nodos = construir_grafo(puntos_filtrados, [vertedero_punto])
+        punto_actual = vertedero_punto['nombre']
+        puntos_pendientes = [p['nombre'] for p in puntos_filtrados[:num_puntos]]
+        ruta_optima = [punto_actual]
+        
+        while puntos_pendientes:
+            mejor_distancia = float('inf')
+            mejor_punto = None
             
-        # Agregar la mejor ruta encontrada
-        if mejor_ruta:
-            ruta_completa.extend(mejor_ruta[:-1])  # Evitar duplicar puntos
-            punto_actual = mejor_punto
-            puntos_pendientes.remove(mejor_punto)
+            for punto in puntos_pendientes:
+                try:
+                    ruta = bellman_ford(nodos, punto_actual, punto)
+                    if ruta:
+                        distancia = sum(
+                            calcular_distancia(
+                                nodos[ruta[i]].latitud,
+                                nodos[ruta[i]].longitud,
+                                nodos[ruta[i+1]].latitud,
+                                nodos[ruta[i+1]].longitud
+                            )
+                            for i in range(len(ruta)-1)
+                        )
+                        if distancia < mejor_distancia:
+                            mejor_distancia = distancia
+                            mejor_punto = punto
+                except Exception as e:
+                    print(f"Error calculando ruta para punto {punto}: {str(e)}")
+                    continue
+            
+            if mejor_punto:
+                ruta_optima.append(mejor_punto)
+                punto_actual = mejor_punto
+                puntos_pendientes.remove(mejor_punto)
+            else:
+                return jsonify({'error': 'No se pudo encontrar una ruta válida'}), 400
+        
+        ruta_optima.append(vertedero_punto['nombre'])
 
-    # Agregar ruta de regreso al vertedero
-    ruta_regreso = bellman_ford(nodos, punto_actual, vertedero_punto['nombre'])
-    if ruta_regreso:
-        ruta_completa.extend(ruta_regreso)
+        # 2. Usar OSRM para obtener las rutas reales
+        ruta_completa = []
+        distancia_total = 0
+        waypoints = []
+        
+        for i in range(len(ruta_optima) - 1):
+            punto_actual = next(p for p in [vertedero_punto] + puntos_filtrados if p['nombre'] == ruta_optima[i])
+            punto_siguiente = next(p for p in [vertedero_punto] + puntos_filtrados if p['nombre'] == ruta_optima[i + 1])
+            
+            waypoints.append({
+                "lat": punto_actual['latitud'],
+                "lon": punto_actual['longitud'],
+                "name": punto_actual['nombre']
+            })
+            
+            route = get_osrm_route(
+                (punto_actual['latitud'], punto_actual['longitud']),
+                (punto_siguiente['latitud'], punto_siguiente['longitud'])
+            )
+            if route:
+                ruta_completa.append(route['geometry'])
+                distancia_total += route['distance']
+            else:
+                return jsonify({'error': 'No se pudo obtener la ruta entre algunos puntos'}), 400
 
-    print('Ruta completa generada:', ruta_completa)
+        if not ruta_completa:
+            return jsonify({'error': 'No se pudo generar la ruta completa'}), 400
 
-    if not ruta_completa:
-        return jsonify({'error': 'No se encontraron rutas'}), 400
+        # Seleccionar camión
+        _, _, camiones = cargar_datos()
+        mejor_camion = seleccionar_mejor_camion(camiones, distancia_total)
 
-    # Calcular distancia total de la ruta
-    distancia_total = 0
-    for i in range(len(ruta_completa) - 1):
-        nodo_actual = nodos[ruta_completa[i]]
-        nodo_siguiente = nodos[ruta_completa[i + 1]]
-        distancia_total += calcular_distancia(
-            nodo_actual.latitud, nodo_actual.longitud,
-            nodo_siguiente.latitud, nodo_siguiente.longitud
-        )
+        if not mejor_camion:
+            return jsonify({'error': 'No hay camiones disponibles para esta ruta'}), 400
 
-    # Seleccionar el mejor camión
-    _, _, camiones = cargar_datos()
-    mejor_camion = seleccionar_mejor_camion(camiones, distancia_total)
+        # Combinar geometrías
+        try:
+            geometria_completa = ruta_completa[0]
+            for geometry in ruta_completa[1:]:
+                decoded = polyline.decode(geometry)
+                geometria_completa = polyline.encode(polyline.decode(geometria_completa) + decoded[1:])
 
-    if not mejor_camion:
-        return jsonify({'error': 'No hay camiones disponibles para esta ruta'}), 400
+            return jsonify({
+                'routes': [{
+                    'geometry': geometria_completa,
+                    'waypoints': waypoints,
+                    'distancia_total': round(distancia_total, 2),
+                    'camion': {
+                        'matricula': mejor_camion['matricula'],
+                        'capacidad': mejor_camion['capacidad_toneladas'],
+                        'rango': mejor_camion['rango_operacion'],
+                        'horario': mejor_camion['horario']
+                    }
+                }]
+            })
+        except Exception as e:
+            print(f"Error generando respuesta final: {str(e)}")
+            return jsonify({'error': 'Error al generar la ruta final'}), 500
 
-    coordinates = []
-    for punto in ruta_completa:
-        nodo = nodos[punto]
-        coordinates.append([float(nodo.longitud), float(nodo.latitud)])
-    
-    return jsonify({
-        'routes': [{
-            'coordinates': coordinates,
-            'distancia_total': round(distancia_total, 2),
-            'camion': {
-                'matricula': mejor_camion['matricula'],
-                'capacidad': mejor_camion['capacidad_toneladas'],
-                'rango': mejor_camion['rango_operacion'],
-                'horario': mejor_camion['horario']
-            }
-        }]
-    })
+    except Exception as e:
+        print(f"Error general en get_routes: {str(e)}")
+        return jsonify({'error': f'Error inesperado: {str(e)}'}), 500
 
 @app.route('/api/vertederos')
 def get_vertederos():
