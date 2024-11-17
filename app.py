@@ -147,6 +147,24 @@ def bellman_ford(nodos, origen, destino):
 
     return ruta if ruta[0] == origen else []
 
+def seleccionar_mejor_camion(camiones, distancia_total):
+    """
+    Selecciona el mejor camión disponible basado en el rango de operación y la distancia total
+    """
+    mejor_camion = None
+    margen_minimo = float('inf')
+    
+    for camion in camiones:
+        if camion['disponibilidad'] == 'Disponible':
+            rango = float(camion['rango_operacion'])
+            if rango >= distancia_total:
+                margen = rango - distancia_total
+                if margen < margen_minimo:
+                    margen_minimo = margen
+                    mejor_camion = camion
+    
+    return mejor_camion
+
 @app.route('/api/routes', methods=['POST'])
 def get_routes():
     data = request.json
@@ -228,16 +246,38 @@ def get_routes():
     if not ruta_completa:
         return jsonify({'error': 'No se encontraron rutas'}), 400
 
-    # Generate response with coordinates
+    # Calcular distancia total de la ruta
+    distancia_total = 0
+    for i in range(len(ruta_completa) - 1):
+        nodo_actual = nodos[ruta_completa[i]]
+        nodo_siguiente = nodos[ruta_completa[i + 1]]
+        distancia_total += calcular_distancia(
+            nodo_actual.latitud, nodo_actual.longitud,
+            nodo_siguiente.latitud, nodo_siguiente.longitud
+        )
+
+    # Seleccionar el mejor camión
+    _, _, camiones = cargar_datos()
+    mejor_camion = seleccionar_mejor_camion(camiones, distancia_total)
+
+    if not mejor_camion:
+        return jsonify({'error': 'No hay camiones disponibles para esta ruta'}), 400
+
     coordinates = []
     for punto in ruta_completa:
         nodo = nodos[punto]
         coordinates.append([float(nodo.longitud), float(nodo.latitud)])
-        print(f"Adding coordinates for {punto}: [{nodo.longitud}, {nodo.latitud}]")
-      
+    
     return jsonify({
         'routes': [{
-            'coordinates': coordinates
+            'coordinates': coordinates,
+            'distancia_total': round(distancia_total, 2),
+            'camion': {
+                'matricula': mejor_camion['matricula'],
+                'capacidad': mejor_camion['capacidad_toneladas'],
+                'rango': mejor_camion['rango_operacion'],
+                'horario': mejor_camion['horario']
+            }
         }]
     })
 

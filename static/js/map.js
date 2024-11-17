@@ -82,6 +82,8 @@ Rango: ${camion.rango_operacion} km`;
         });
 });
 
+var truckMarker = null;
+
 function calcularDistancia(lat1, lon1, lat2, lon2) {
     const R = 6371; // Radius of the Earth in kilometers
     const dLat = (lat2 - lat1) * Math.PI / 180;
@@ -121,28 +123,23 @@ function calcularRutas(vertedero, numPuntos) {
     .then(data => {
         console.log('Routes data:', data);
         if (data.routes && data.routes.length > 0) {
-            const colors = ['red', 'blue', 'green'];
             const route = data.routes[0];
-            
-            // Asegurarse de que las coordenadas estén en el formato correcto
             const coordinates = route.coordinates.map(coord => {
                 return [parseFloat(coord[1]), parseFloat(coord[0])];
             });
             
-            console.log('Processed coordinates:', coordinates);
-
             if (coordinates.length > 1) {
-                const color = colors[0];
+                // Dibujar la ruta
                 const polyline = L.polyline(coordinates, { 
-                    color: color, 
+                    color: 'blue', 
                     weight: 2.5, 
                     opacity: 1 
                 }).addTo(rutasLayerGroup);
                 
-                // Ajustar el zoom del mapa para mostrar toda la ruta
                 map.fitBounds(polyline.getBounds());
-                
-                console.log('Polyline added:', polyline);
+
+                // Colocar el camión en el primer punto de la ruta con información
+                displayStaticTruck(coordinates[0], route.camion, route.distancia_total);
             } else {
                 console.error('Invalid coordinates for polyline:', coordinates);
                 alert('No se encontraron suficientes puntos para generar una ruta');
@@ -154,7 +151,42 @@ function calcularRutas(vertedero, numPuntos) {
     .catch(error => console.error('Error fetching routes:', error));
 }
 
+function displayStaticTruck(position, truckInfo, distanciaTotal) {
+    if (truckMarker) {
+        truckMarker.remove();
+    }
+
+    const truckIcon = L.divIcon({
+        html: '🚛',
+        className: 'truck-icon',
+        iconSize: [25, 25],
+        iconAnchor: [12, 12]
+    });
+
+    truckMarker = L.marker(position, {
+        icon: truckIcon
+    }).addTo(map);
+
+    // Agregar popup con información detallada
+    const popupContent = `
+        <div style="font-size: 14px;">
+            <h4 style="margin: 0 0 8px 0;">Camión Asignado</h4>
+            <strong>Matrícula:</strong> ${truckInfo.matricula}<br>
+            <strong>Capacidad:</strong> ${truckInfo.capacidad} ton<br>
+            <strong>Rango:</strong> ${truckInfo.rango} km<br>
+            <strong>Horario:</strong> ${truckInfo.horario}<br>
+            <strong>Distancia de ruta:</strong> ${distanciaTotal} km
+        </div>
+    `;
+
+    truckMarker.bindPopup(popupContent);
+    truckMarker.openPopup(); // Mostrar el popup inmediatamente
+}
+
 function limpiarRutas() {
+    if (truckMarker) {
+        truckMarker.remove();
+    }
     rutasLayerGroup.clearLayers();
 }
 
