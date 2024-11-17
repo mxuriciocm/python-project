@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Error fetching data:', error));
 
-    // Fetch and display vertederos based on current day and time
     fetch('/api/vertederos')
         .then(response => response.json())
         .then(data => {
@@ -50,9 +49,9 @@ function calcularDistancia(lat1, lon1, lat2, lon2) {
     const R = 6371; // Radius of the Earth in kilometers
     const dLat = (lat2 - lat1) * Math.PI / 180;
     const dLon = (lon2 - lon1) * Math.PI / 180;
-    const a = 
-        0.5 - Math.cos(dLat)/2 + 
-        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+    const a =
+        0.5 - Math.cos(dLat)/2 +
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
         (1 - Math.cos(dLon))/2;
 
     return R * 2 * Math.asin(Math.sqrt(a));
@@ -67,34 +66,45 @@ function calcularRutas(vertedero, numPuntos) {
         return;
     }
 
-    const puntosCercanos = window.pointsData
-        .map(p => ({
-            ...p,
-            distancia: calcularDistancia(vertederoPunto.lat, vertederoPunto.lon, p.lat, p.lon)
-        }))
-        .sort((a, b) => a.distancia - b.distancia)
-        .slice(0, numPuntos);
+    const now = new Date();
+    const currentHour = now.getHours();
 
-    const waypoints = [vertederoPunto, ...puntosCercanos, vertederoPunto];
-    const osrmUrl = `http://router.project-osrm.org/route/v1/driving/${waypoints.map(p => `${p.lon},${p.lat}`).join(';')}?overview=full&geometries=geojson&alternatives=true`;
+    fetch('/api/routes', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            vertedero: vertedero,
+            num_puntos: numPuntos,
+            hour: currentHour
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Routes data:', data);
+        if (data.routes && data.routes.length > 0) {
+            const colors = ['red', 'blue', 'green'];
+            const route = data.routes[0];
+            const coordinates = route.coordinates.map(coord => [coord[1], coord[0]]);
+            console.log('Coordinates for polyline:', coordinates);
 
-    fetch(osrmUrl)
-        .then(response => response.json())
-        .then(data => {
-            if (data.routes && data.routes.length > 0) {
-                const colors = ['red', 'blue', 'green'];
-                data.routes.forEach((route, index) => {
-                    const coordinates = route.geometry.coordinates.map(coord => [coord[1], coord[0]]);
-                    const color = colors[index % colors.length];
-                    L.polyline(coordinates, { color: color, weight: 2.5, opacity: 1 }).addTo(rutasLayerGroup);
-                });
+            if (coordinates.length > 1) {
+                const color = colors[0];
+                const polyline = L.polyline(coordinates, { color: color, weight: 2.5, opacity: 1 }).addTo(rutasLayerGroup);
+                console.log('Polyline added:', polyline);
             } else {
+                console.error('Invalid coordinates for polyline:', coordinates);
                 alert('No se encontraron rutas');
             }
-        })
-        .catch(error => console.error('Error fetching routes:', error));
+        } else {
+            alert('No se encontraron rutas');
+        }
+    })
+    .catch(error => console.error('Error fetching routes:', error));
 }
 
 function limpiarRutas() {
     rutasLayerGroup.clearLayers();
 }
+

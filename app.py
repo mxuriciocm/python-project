@@ -1,37 +1,97 @@
-import pandas as pd
+import mysql.connector
+from mysql.connector import Error
 from flask import Flask, render_template, jsonify, request
+from datetime import datetime
+from sqlalchemy import create_engine
 
 app = Flask(__name__)
+
+db_config = {
+    'host': '127.0.0.1',
+    'user': 'root',
+    'password': 'mauricio',
+    'database': 'optimizacion_rutas'
+}
+db_uri = f"mysql+mysqlconnector://{db_config['user']}:{db_config['password']}@{db_config['host']}/{db_config['database']}"
+
+def get_db_connection():
+    try:
+        connection = mysql.connector.connect(**db_config)
+        return connection   
+    except Error as e:
+        print(f"Error conectando a MySQL: {e}")
+        return None
+
+def cargar_datos():
+    connection = get_db_connection()
+    if not connection:
+        return [], [], []
+
+    try:
+        cursor = connection.cursor(dictionary=True)
+
+        cursor.execute("""
+            SELECT nombre, latitud, longitud, dia, turno
+            FROM puntos_recoleccion
+        """)
+        puntos_recoleccion = cursor.fetchall()
+
+        cursor.execute("""
+            SELECT nombre, latitud, longitud, dia, turno
+            FROM vertederos
+        """)
+        vertederos = cursor.fetchall()
+
+        cursor.execute("""
+            SELECT id, matricula, capacidad_toneladas, consumo_combustible,
+                   velocidad_maxima, rango_operacion, horario, disponibilidad
+            FROM camiones_basura
+        """)
+        camiones = cursor.fetchall()
+
+        return puntos_recoleccion, vertederos, camiones
+
+    except Error as e:
+        print(f"Error consultando datos: {e}")
+        return [], [], []
+    finally:
+        connection.close()
+
+def actualizar_disponibilidad_camion(camion_id, disponibilidad):
+    connection = get_db_connection()
+    if not connection:
+        return False
+
+    try:
+        cursor = connection.cursor()
+        cursor.execute("""
+            UPDATE camiones_basura
+            SET disponibilidad = %s
+            WHERE id = %s
+        """, (disponibilidad, camion_id))
+        connection.commit()
+        return True
+    except Error as e:
+        print(f"Error actualizando disponibilidad: {e}")
+        return False
+    finally:
+        connection.close()
 
 dias_semana = {
     "Monday": "Lunes",
     "Tuesday": "Martes",
-    "Wednesday": "Miércoles",
+    "Wednesday": "Miercoles",
     "Thursday": "Jueves",
     "Friday": "Viernes",
-    "Saturday": "Sábado",
+    "Saturday": "Sabado",
     "Sunday": "Domingo"
 }
 
 turnos = {
-    "Mañana": range(0, 12),
-    "Tarde": range(12, 18),
-    "Noche": range(18, 24)
+    "manana": range(0, 12),
+    "tarde": range(12, 18),
+    "noche": range(18, 24)
 }
-
-puntos_recoleccion_path = 'datasets/puntos_recoleccion.json'
-vertederos_path = 'datasets/vertederos.json'
-camiones_path = 'datasets/camiones_basura.json'
-
-def cargar_datos(rutas):
-    try:
-        df_recoleccion = pd.read_json(rutas[0])
-        df_vertederos = pd.read_json(rutas[1])
-        df_camiones = pd.read_json(rutas[2])
-        return df_recoleccion, df_vertederos, df_camiones
-    except ValueError as e:
-        print(f"Error al cargar los datos: {e}")
-        return pd.DataFrame(), pd.DataFrame(), pd.DataFrame()
 
 @app.route('/')
 def index():
@@ -41,78 +101,88 @@ def index():
 def get_data():
     dia_actual_en, hora_actual = obtener_dia_hora_actual()
     dia_actual_es = dias_semana.get(dia_actual_en, "")
-    
-    df_recoleccion, df_vertederos, df_camiones = cargar_datos([puntos_recoleccion_path, vertederos_path, camiones_path])
-    
-    puntos_recoleccion_filtrados = filtrar_puntos(df_recoleccion, dia_actual_es, hora_actual)
-    puntos = puntos_recoleccion_filtrados.to_dict(orient='records')
-    
-    # Convert latitud and longitud to lat and lon for the frontend
-    for punto in puntos:
+  
+    puntos_recoleccion, vertederos, camiones = cargar_datos()
+  
+    puntos_recoleccion_filtrados = filtrar_puntos(puntos_recoleccion, dia_actual_es, hora_actual)
+  
+    for punto in puntos_recoleccion_filtrados:
         punto['lat'] = punto.pop('latitud')
         punto['lon'] = punto.pop('longitud')
-    
-    return jsonify({'points': puntos})
+  
+    return jsonify({'points': puntos_recoleccion_filtrados})
 
 @app.route('/api/routes', methods=['POST'])
 def get_routes():
     data = request.json
     vertedero_nombre = data['vertedero']
     num_puntos = int(data['num_puntos'])
+    hora_actual = int(data.get('hour', datetime.now().hour))
     
-    dia_actual_en, hora_actual = obtener_dia_hora_actual()
+    # Get current day and shift
+    dia_actual_en, _ = obtener_dia_hora_actual()
     dia_actual_es = dias_semana.get(dia_actual_en, "")
-    
-    df_recoleccion, df_vertederos, df_camiones = cargar_datos([puntos_recoleccion_path, vertederos_path, camiones_path])
-    
-    puntos_recoleccion_filtrados = filtrar_puntos(df_recoleccion, dia_actual_es, hora_actual)
-    puntos = puntos_recoleccion_filtrados.to_dict(orient='records')
-    
-    # Convert latitud and longitud to lat and lon for the frontend
-    for punto in puntos:
-        punto['lat'] = punto.pop('latitud')
-        punto['lon'] = punto.pop('longitud')
-    vertederos = df_vertederos.to_dict(orient='records')
+
+    # Get points and landfills
+    puntos_recoleccion, vertederos, _ = cargar_datos()
     vertedero_punto = next((v for v in vertederos if v['nombre'] == vertedero_nombre), None)
+  
     if not vertedero_punto:
         return jsonify({'error': 'Vertedero no válido'}), 400
+
+    # Filter and sort collection points
+    puntos_recoleccion_filtrados = filtrar_puntos(puntos_recoleccion, dia_actual_es, hora_actual)
+    puntos_cercanos = sorted(puntos_recoleccion_filtrados, key=lambda x: calcular_distancia(
+        vertedero_punto['latitud'], vertedero_punto['longitud'], x['latitud'], x['longitud']))[:num_puntos]
     
-    puntos_cercanos = sorted(
-        puntos, 
-        key=lambda p: calcular_distancia(vertedero_punto['lat'], vertedero_punto['lon'], p['lat'], p['lon'])
-    )[:num_puntos]
-    
+    # Generate route
     waypoints = [vertedero_punto] + puntos_cercanos + [vertedero_punto]
+    print('Waypoints:', waypoints)
+
+    nodos = construir_grafo(puntos_cercanos, [vertedero_punto])
     rutas = bellman_ford(nodos, waypoints)
-    
-    return jsonify({'routes': rutas})
+    print('Rutas calculadas:', rutas)
+
+    if not rutas:
+        return jsonify({'error': 'No se encontraron rutas'}), 400
+
+    # Generate response with coordinates
+    response_routes = []
+    for ruta in rutas:
+        coordinates = []
+        for punto in ruta:
+            nodo = nodos[punto]
+            coordinates.append([nodo.longitud, nodo.latitud])
+            print(f"Adding coordinates for {punto}: [{nodo.longitud}, {nodo.latitud}]")
+      
+        response_routes.append({
+            'coordinates': coordinates
+        })
+  
+    return jsonify({'routes': response_routes})
 
 @app.route('/api/vertederos')
 def get_vertederos():
     dia_actual_en, hora_actual = obtener_dia_hora_actual()
     dia_actual_es = dias_semana.get(dia_actual_en, "")
-    
-    df_vertederos = pd.read_json(vertederos_path)
-    vertederos_filtrados = filtrar_puntos(df_vertederos, dia_actual_es, hora_actual)
-    vertederos = vertederos_filtrados.to_dict(orient='records')
-    
-    # Convert latitud and longitud to lat and lon for the frontend
-    for vertedero in vertederos:
+  
+    _, vertederos, _ = cargar_datos()
+    vertederos_filtrados = filtrar_puntos(vertederos, dia_actual_es, hora_actual)
+  
+    for vertedero in vertederos_filtrados:
         vertedero['lat'] = vertedero.pop('latitud')
         vertedero['lon'] = vertedero.pop('longitud')
-    
-    return jsonify({'vertederos': vertederos})
+  
+    return jsonify({'vertederos': vertederos_filtrados})
 
 def filtrar_puntos(puntos, dia_actual, hora_actual):
-    """Filtra los puntos de recolección según el día y la hora actuales."""
-    return puntos[
-        (puntos['dia'] == dia_actual) & 
-        (puntos['turno'].isin(turnos.keys())) & 
-        (puntos['turno'].apply(lambda x: hora_actual in turnos[x]))
+    puntos_filtrados = [
+        punto for punto in puntos
+        if punto['dia'] == dia_actual and punto['turno'].lower() in turnos and hora_actual in turnos[punto['turno'].lower()]
     ]
+    return puntos_filtrados
 
 def calcular_distancia(lat1, lon1, lat2, lon2):
-    """Calcula la distancia entre dos puntos geográficos."""
     from geopy.distance import geodesic
     return geodesic((lat1, lon1), (lat2, lon2)).kilometers
 
@@ -128,46 +198,33 @@ class Nodo:
 
 def construir_grafo(puntos_recoleccion, vertederos):
     nodos = {}
-    
-    # Crear nodos para puntos de recolección
-    for _, punto in puntos_recoleccion.iterrows():
+  
+    for punto in puntos_recoleccion:
         nodos[punto['nombre']] = Nodo(punto['nombre'], punto['latitud'], punto['longitud'])
-    
-    # Crear nodos para vertederos
-    for _, vertedero in vertederos.iterrows():
+  
+    for vertedero in vertederos:
         nodos[vertedero['nombre']] = Nodo(vertedero['nombre'], vertedero['latitud'], vertedero['longitud'])
-    
-    # Conectar nodos con distancias
+
     for nodo1 in nodos.values():
         for nodo2 in nodos.values():
             if nodo1 != nodo2:
                 distancia = calcular_distancia(nodo1.latitud, nodo1.longitud, nodo2.latitud, nodo2.longitud)
                 nodo1.agregar_vecino(nodo2, distancia)
-    
+  
     return nodos
 
 def bellman_ford(nodos, waypoints):
-    distancias = {nodo: float('inf') for nodo in nodos}
-    distancias[waypoints[0]['nombre']] = 0
-    predecesores = {nodo: None for nodo in nodos}
-    
-    for _ in range(len(nodos) - 1):
-        for nodo in nodos.values():
-            for vecino, peso in nodo.vecinos:
-                if distancias[nodo.nombre] + peso < distancias[vecino.nombre]:
-                    distancias[vecino.nombre] = distancias[nodo.nombre] + peso
-                    predecesores[vecino.nombre] = nodo.nombre
-    
-    rutas = []
-    for _ in range(3):  # Obtener hasta 3 rutas
-        ruta = []
-        nodo = waypoints[-1]['nombre']
-        while nodo:
-            ruta.append(nodo)
-            nodo = predecesores[nodo]
-        rutas.append(ruta[::-1])
-    
-    return rutas
+    """Generate a route that visits all waypoints in order"""
+    if len(waypoints) < 2:
+        return []
+        
+    # Create a single route visiting all waypoints in sequence
+    ruta = []
+    for i in range(len(waypoints)):
+        ruta.append(waypoints[i]['nombre'])
+        
+    print('Ruta generada:', ruta)  # Debugging statement
+    return [ruta]  # Return a list containing a single route
 
 def obtener_dia_hora_actual():
     from datetime import datetime
@@ -179,14 +236,14 @@ def obtener_dia_hora_actual():
 if __name__ == '__main__':
     dia_actual_en, hora_actual = obtener_dia_hora_actual()
     dia_actual_es = dias_semana.get(dia_actual_en, "")
-    
-    df_recoleccion, df_vertederos, df_camiones = cargar_datos([puntos_recoleccion_path, vertederos_path, camiones_path])
+  
+    df_recoleccion, df_vertederos, df_camiones = cargar_datos()
 
     puntos_recoleccion_filtrados = filtrar_puntos(df_recoleccion, dia_actual_es, hora_actual)
-    
+  
     vertederos_filtrados = filtrar_puntos(df_vertederos, dia_actual_es, hora_actual)
 
-    global nodos 
+    global nodos
     nodos = construir_grafo(puntos_recoleccion_filtrados, vertederos_filtrados)
 
     app.run(debug=True, host='0.0.0.0', port=8080)
