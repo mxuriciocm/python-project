@@ -86,16 +86,29 @@ function calcularRutas(vertedero, numPuntos) {
         if (data.routes && data.routes.length > 0) {
             const colors = ['red', 'blue', 'green'];
             const route = data.routes[0];
-            const coordinates = route.coordinates.map(coord => [coord[1], coord[0]]);
-            console.log('Coordinates for polyline:', coordinates);
+            
+            // Asegurarse de que las coordenadas estén en el formato correcto
+            const coordinates = route.coordinates.map(coord => {
+                return [parseFloat(coord[1]), parseFloat(coord[0])];
+            });
+            
+            console.log('Processed coordinates:', coordinates);
 
             if (coordinates.length > 1) {
                 const color = colors[0];
-                const polyline = L.polyline(coordinates, { color: color, weight: 2.5, opacity: 1 }).addTo(rutasLayerGroup);
+                const polyline = L.polyline(coordinates, { 
+                    color: color, 
+                    weight: 2.5, 
+                    opacity: 1 
+                }).addTo(rutasLayerGroup);
+                
+                // Ajustar el zoom del mapa para mostrar toda la ruta
+                map.fitBounds(polyline.getBounds());
+                
                 console.log('Polyline added:', polyline);
             } else {
                 console.error('Invalid coordinates for polyline:', coordinates);
-                alert('No se encontraron rutas');
+                alert('No se encontraron suficientes puntos para generar una ruta');
             }
         } else {
             alert('No se encontraron rutas');

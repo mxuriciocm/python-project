@@ -112,6 +112,32 @@ def get_data():
   
     return jsonify({'points': puntos_recoleccion_filtrados})
 
+def bellman_ford(nodos, origen, destino):
+    distancias = {nodo: float('inf') for nodo in nodos}
+    predecesores = {nodo: None for nodo in nodos}
+    distancias[origen] = 0
+
+    for _ in range(len(nodos) - 1):
+        for nodo in nodos:
+            for vecino, peso in nodos[nodo].vecinos:
+                if distancias[nodo] != float('inf') and distancias[nodo] + peso < distancias[vecino.nombre]:
+                    distancias[vecino.nombre] = distancias[nodo] + peso
+                    predecesores[vecino.nombre] = nodo
+
+    for nodo in nodos:
+        for vecino, peso in nodos[nodo].vecinos:
+            if distancias[nodo] != float('inf') and distancias[nodo] + peso < distancias[vecino.nombre]:
+                raise ValueError("El grafo contiene un ciclo negativo")
+
+    ruta = []
+    actual = destino
+    while actual is not None:
+        ruta.append(actual)
+        actual = predecesores[actual]
+    ruta.reverse()
+
+    return ruta if ruta[0] == origen else []
+
 @app.route('/api/routes', methods=['POST'])
 def get_routes():
     data = request.json
@@ -135,31 +161,76 @@ def get_routes():
     puntos_cercanos = sorted(puntos_recoleccion_filtrados, key=lambda x: calcular_distancia(
         vertedero_punto['latitud'], vertedero_punto['longitud'], x['latitud'], x['longitud']))[:num_puntos]
     
+    if not puntos_cercanos:
+        return jsonify({'error': 'No hay puntos de recolección disponibles'}), 400
+
     # Generate route
-    waypoints = [vertedero_punto] + puntos_cercanos + [vertedero_punto]
+    waypoints = [vertedero_punto] + puntos_cercanos
     print('Waypoints:', waypoints)
 
     nodos = construir_grafo(puntos_cercanos, [vertedero_punto])
-    rutas = bellman_ford(nodos, waypoints)
-    print('Rutas calculadas:', rutas)
+    
+    # Generar ruta completa
+    ruta_completa = []
+    punto_actual = vertedero_punto['nombre']
+    
+    # Crear una copia de puntos_cercanos para ir eliminando los visitados
+    puntos_pendientes = [p['nombre'] for p in puntos_cercanos]
+    
+    while puntos_pendientes:
+        mejor_distancia = float('inf')
+        mejor_punto = None
+        mejor_ruta = []
+        
+        # Encontrar el punto más cercano no visitado
+        for punto in puntos_pendientes:
+            ruta_actual = bellman_ford(nodos, punto_actual, punto)
+            if ruta_actual:
+                distancia_total = sum(
+                    calcular_distancia(
+                        nodos[ruta_actual[i]].latitud,
+                        nodos[ruta_actual[i]].longitud,
+                        nodos[ruta_actual[i+1]].latitud,
+                        nodos[ruta_actual[i+1]].longitud
+                    )
+                    for i in range(len(ruta_actual)-1)
+                )
+                if distancia_total < mejor_distancia:
+                    mejor_distancia = distancia_total
+                    mejor_punto = punto
+                    mejor_ruta = ruta_actual
 
-    if not rutas:
+        if mejor_punto is None:
+            break
+            
+        # Agregar la mejor ruta encontrada
+        if mejor_ruta:
+            ruta_completa.extend(mejor_ruta[:-1])  # Evitar duplicar puntos
+            punto_actual = mejor_punto
+            puntos_pendientes.remove(mejor_punto)
+
+    # Agregar ruta de regreso al vertedero
+    ruta_regreso = bellman_ford(nodos, punto_actual, vertedero_punto['nombre'])
+    if ruta_regreso:
+        ruta_completa.extend(ruta_regreso)
+
+    print('Ruta completa generada:', ruta_completa)
+
+    if not ruta_completa:
         return jsonify({'error': 'No se encontraron rutas'}), 400
 
     # Generate response with coordinates
-    response_routes = []
-    for ruta in rutas:
-        coordinates = []
-        for punto in ruta:
-            nodo = nodos[punto]
-            coordinates.append([nodo.longitud, nodo.latitud])
-            print(f"Adding coordinates for {punto}: [{nodo.longitud}, {nodo.latitud}]")
+    coordinates = []
+    for punto in ruta_completa:
+        nodo = nodos[punto]
+        coordinates.append([float(nodo.longitud), float(nodo.latitud)])
+        print(f"Adding coordinates for {punto}: [{nodo.longitud}, {nodo.latitud}]")
       
-        response_routes.append({
+    return jsonify({
+        'routes': [{
             'coordinates': coordinates
-        })
-  
-    return jsonify({'routes': response_routes})
+        }]
+    })
 
 @app.route('/api/vertederos')
 def get_vertederos():
@@ -212,19 +283,6 @@ def construir_grafo(puntos_recoleccion, vertederos):
                 nodo1.agregar_vecino(nodo2, distancia)
   
     return nodos
-
-def bellman_ford(nodos, waypoints):
-    """Generate a route that visits all waypoints in order"""
-    if len(waypoints) < 2:
-        return []
-        
-    # Create a single route visiting all waypoints in sequence
-    ruta = []
-    for i in range(len(waypoints)):
-        ruta.append(waypoints[i]['nombre'])
-        
-    print('Ruta generada:', ruta)  # Debugging statement
-    return [ruta]  # Return a list containing a single route
 
 def obtener_dia_hora_actual():
     from datetime import datetime
