@@ -43,6 +43,43 @@ document.addEventListener('DOMContentLoaded', function() {
             window.vertederosData = data.vertederos;
         })
         .catch(error => console.error('Error fetching vertederos:', error));
+
+    // Update this fetch for trucks
+    fetch('/api/camiones')
+        .then(response => response.json())
+        .then(data => {
+            console.log('Camiones recibidos:', data.camiones); // Debug log
+            const camionesContainer = document.getElementById('camiones-list');
+            
+            if (!camionesContainer) {
+                console.error('Container camiones-list not found');
+                return;
+            }
+            
+            camionesContainer.innerHTML = ''; // Clear previous content
+            
+            if (data.camiones && data.camiones.length > 0) {
+                data.camiones.forEach(camion => {
+                    const camionDiv = document.createElement('div');
+                    camionDiv.className = 'camion-item';
+                    camionDiv.innerHTML = `
+                        <strong>${camion.matricula}</strong><br>
+                        ${camion.capacidad_toneladas}t - ${camion.horario}
+                    `;
+                    camionDiv.title = `Capacidad: ${camion.capacidad_toneladas} toneladas
+Horario: ${camion.horario}
+Rango: ${camion.rango_operacion} km`;
+                    camionesContainer.appendChild(camionDiv);
+                });
+            } else {
+                camionesContainer.innerHTML = '<div>No hay camiones disponibles</div>';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching camiones:', error);
+            document.getElementById('camiones-list').innerHTML = 
+                '<div>Error al cargar camiones</div>';
+        });
 });
 
 function calcularDistancia(lat1, lon1, lat2, lon2) {

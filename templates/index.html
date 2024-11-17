@@ -43,6 +43,33 @@
         width: 100%;
         margin: 0 auto;
       }
+      #camiones-container {
+        position: absolute;
+        top: 120px;
+        right: 10px;
+        width: 200px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        z-index: 1000;
+        padding: 10px;
+      }
+      #camiones-list {
+        max-height: 300px;
+        overflow-y: auto;
+      }
+      #camiones-list div {
+        padding: 5px;
+        margin: 5px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 12px;
+      }
+      .camion-item {
+        cursor: pointer;
+      }
+      .camion-item:hover {
+        background-color: #f0f0f0;
+      }
     </style>
   </head>
   <body>
@@ -58,6 +85,10 @@
         Calcular Rutas
       </button>
       <button onclick="limpiarRutas()">Limpiar Rutas</button>
+    </div>
+    <div id="camiones-container">
+      <h3 style="margin: 0 0 10px 0;">Camiones Disponibles</h3>
+      <div id="camiones-list"></div>
     </div>
     <div id="map"></div>
     <script src="{{ url_for('static', filename='js/map.js') }}"></script>

@@ -57,26 +57,6 @@ def cargar_datos():
     finally:
         connection.close()
 
-def actualizar_disponibilidad_camion(camion_id, disponibilidad):
-    connection = get_db_connection()
-    if not connection:
-        return False
-
-    try:
-        cursor = connection.cursor()
-        cursor.execute("""
-            UPDATE camiones_basura
-            SET disponibilidad = %s
-            WHERE id = %s
-        """, (disponibilidad, camion_id))
-        connection.commit()
-        return True
-    except Error as e:
-        print(f"Error actualizando disponibilidad: {e}")
-        return False
-    finally:
-        connection.close()
-
 dias_semana = {
     "Monday": "Lunes",
     "Tuesday": "Martes",
@@ -111,6 +91,35 @@ def get_data():
         punto['lon'] = punto.pop('longitud')
   
     return jsonify({'points': puntos_recoleccion_filtrados})
+
+def filtrar_camiones(camiones, hora_actual):
+    """
+    Filtra los camiones según disponibilidad solamente
+    """
+    print(f"Hora actual: {hora_actual}")
+    camiones_filtrados = []
+    
+    for camion in camiones:
+        print(f"Verificando camión {camion['matricula']}: disponibilidad {camion['disponibilidad']}")
+        
+        # Solo verificar disponibilidad
+        if camion['disponibilidad'] == 'Disponible':
+            camiones_filtrados.append(camion)
+            print(f"Camión {camion['matricula']} agregado (disponible)")
+    
+    print(f"Total de camiones filtrados: {len(camiones_filtrados)}")
+    return camiones_filtrados
+
+@app.route('/api/camiones')
+def get_camiones():
+    dia_actual_en, hora_actual = obtener_dia_hora_actual()
+    _, _, camiones = cargar_datos()
+    
+    camiones_filtrados = filtrar_camiones(camiones, hora_actual)
+    print(f'Hora actual: {hora_actual}')  # Debug print
+    print('Camiones filtrados por turno y disponibilidad:', camiones_filtrados)
+    
+    return jsonify({'camiones': camiones_filtrados})  # Return only filtered trucks
 
 def bellman_ford(nodos, origen, destino):
     distancias = {nodo: float('inf') for nodo in nodos}
