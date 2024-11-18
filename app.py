@@ -96,27 +96,7 @@ def get_data():
     return jsonify({'points': puntos_recoleccion_filtrados})
 
 def filtrar_camiones(camiones, hora_actual):
-    camiones_filtrados = []
-    
-    horarios_rangos = {
-        'MAÑANA': range(6, 14),    
-        'TARDE': range(14, 22),    
-        'NOCHE': list(range(22, 24)) + list(range(0, 6)) 
-    }
-    
-    for camion in camiones:
-        if camion['disponibilidad'] != 'Disponible':
-            continue
-            
-        horario = camion['horario'].upper()
-        if horario in horarios_rangos:
-            if horario == 'NOCHE':
-                if hora_actual >= 22 or hora_actual < 6:
-                    camiones_filtrados.append(camion)
-            elif hora_actual in horarios_rangos[horario]:
-                camiones_filtrados.append(camion)
-    
-    return camiones_filtrados
+    return [camion for camion in camiones if camion['disponibilidad'] == 'Disponible']
 
 @app.route('/api/camiones')
 def get_camiones():
@@ -384,4 +364,4 @@ if __name__ == '__main__':
     global nodos
     nodos = construir_grafo(puntos_recoleccion_filtrados, vertederos_filtrados)
 
-    app.run(debug=True, host='0.0.0.0', port=8080)
+    app.run(debug=True, host='0.0.0.0', port=8081)
