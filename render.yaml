@@ -1,0 +1,12 @@
+
+services:
+  - type: web
+    name: routes-optimization
+    env: python
+    buildCommand: ./build.sh
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.18
+      - key: FLASK_ENV
+        value: production

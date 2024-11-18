@@ -46,7 +46,7 @@ def cargar_datos():
         vertederos = cursor.fetchall()
 
         cursor.execute("""
-            SELECT id, matricula, capacidad_toneladas, consumo_combustible,
+            SELECT id, matricula, capacidad_toneladas, consumo_combustible,`
                    velocidad_maxima, rango_operacion, horario, disponibilidad
             FROM camiones_basura
         """)
