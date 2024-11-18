@@ -96,20 +96,31 @@ def get_data():
 
 def filtrar_camiones(camiones, hora_actual):
     """
-    Filtra los camiones según disponibilidad solamente
+    Filtra los camiones según disponibilidad y horario
     """
-    print(f"Hora actual: {hora_actual}")
     camiones_filtrados = []
     
-    for camion in camiones:
-        print(f"Verificando camión {camion['matricula']}: disponibilidad {camion['disponibilidad']}")
-        
-        # Solo verificar disponibilidad
-        if camion['disponibilidad'] == 'Disponible':
-            camiones_filtrados.append(camion)
-            print(f"Camión {camion['matricula']} agregado (disponible)")
+    # Mapeo de horarios a rangos de horas
+    horarios_rangos = {
+        'MAÑANA': range(6, 14),    # 6:00 AM - 2:00 PM
+        'TARDE': range(14, 22),    # 2:00 PM - 10:00 PM
+        'NOCHE': list(range(22, 24)) + list(range(0, 6))  # 10:00 PM - 6:00 AM
+    }
     
-    print(f"Total de camiones filtrados: {len(camiones_filtrados)}")
+    for camion in camiones:
+        if camion['disponibilidad'] != 'Disponible':
+            continue
+            
+        horario = camion['horario'].upper()
+        if horario in horarios_rangos:
+            # Caso especial para el turno de noche que cruza la medianoche
+            if horario == 'NOCHE':
+                if hora_actual >= 22 or hora_actual < 6:
+                    camiones_filtrados.append(camion)
+            # Para otros turnos, verificación simple de rango
+            elif hora_actual in horarios_rangos[horario]:
+                camiones_filtrados.append(camion)
+    
     return camiones_filtrados
 
 @app.route('/api/camiones')
@@ -279,12 +290,13 @@ def get_routes():
         if not ruta_completa:
             return jsonify({'error': 'No se pudo generar la ruta completa'}), 400
 
-        # Seleccionar camión
-        _, _, camiones = cargar_datos()
-        mejor_camion = seleccionar_mejor_camion(camiones, distancia_total)
+        # Seleccionar camión - Modificado para usar solo camiones filtrados
+        _, _, todos_camiones = cargar_datos()
+        camiones_filtrados = filtrar_camiones(todos_camiones, hora_actual)
+        mejor_camion = seleccionar_mejor_camion(camiones_filtrados, distancia_total)
 
         if not mejor_camion:
-            return jsonify({'error': 'No hay camiones disponibles para esta ruta'}), 400
+            return jsonify({'error': 'No hay camiones disponibles en este horario para esta ruta'}), 400
 
         # Combinar geometrías
         try:
@@ -312,7 +324,7 @@ def get_routes():
 
     except Exception as e:
         print(f"Error general en get_routes: {str(e)}")
-        return jsonify({'error': f'Error inesperado: {str(e)}'}), 500
+        return jsonify({'error': f'Error inesperado: {str(e)}'}, 500)
 
 @app.route('/api/vertederos')
 def get_vertederos():
