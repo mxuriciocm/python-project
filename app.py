@@ -95,16 +95,12 @@ def get_data():
     return jsonify({'points': puntos_recoleccion_filtrados})
 
 def filtrar_camiones(camiones, hora_actual):
-    """
-    Filtra los camiones según disponibilidad y horario
-    """
     camiones_filtrados = []
     
-    # Mapeo de horarios a rangos de horas
     horarios_rangos = {
-        'MAÑANA': range(6, 14),    # 6:00 AM - 2:00 PM
-        'TARDE': range(14, 22),    # 2:00 PM - 10:00 PM
-        'NOCHE': list(range(22, 24)) + list(range(0, 6))  # 10:00 PM - 6:00 AM
+        'MAÑANA': range(6, 14),    
+        'TARDE': range(14, 22),    
+        'NOCHE': list(range(22, 24)) + list(range(0, 6)) 
     }
     
     for camion in camiones:
@@ -113,11 +109,9 @@ def filtrar_camiones(camiones, hora_actual):
             
         horario = camion['horario'].upper()
         if horario in horarios_rangos:
-            # Caso especial para el turno de noche que cruza la medianoche
             if horario == 'NOCHE':
                 if hora_actual >= 22 or hora_actual < 6:
                     camiones_filtrados.append(camion)
-            # Para otros turnos, verificación simple de rango
             elif hora_actual in horarios_rangos[horario]:
                 camiones_filtrados.append(camion)
     
@@ -129,10 +123,7 @@ def get_camiones():
     _, _, camiones = cargar_datos()
     
     camiones_filtrados = filtrar_camiones(camiones, hora_actual)
-    print(f'Hora actual: {hora_actual}')  # Debug print
-    print('Camiones filtrados por turno y disponibilidad:', camiones_filtrados)
-    
-    return jsonify({'camiones': camiones_filtrados})  # Return only filtered trucks
+    return jsonify({'camiones': camiones_filtrados})  
 
 def bellman_ford(nodos, origen, destino):
     distancias = {nodo: float('inf') for nodo in nodos}
@@ -161,9 +152,6 @@ def bellman_ford(nodos, origen, destino):
     return ruta if ruta[0] == origen else []
 
 def seleccionar_mejor_camion(camiones, distancia_total):
-    """
-    Selecciona el mejor camión disponible basado en el rango de operación y la distancia total
-    """
     mejor_camion = None
     margen_minimo = float('inf')
     
@@ -179,7 +167,6 @@ def seleccionar_mejor_camion(camiones, distancia_total):
     return mejor_camion
 
 def get_osrm_route(start_coords, end_coords):
-    """Obtiene la ruta entre dos puntos usando OSRM"""
     url = f"http://router.project-osrm.org/route/v1/driving/{start_coords[1]},{start_coords[0]};{end_coords[1]},{end_coords[0]}"
     params = {
         "overview": "full",
@@ -192,7 +179,7 @@ def get_osrm_route(start_coords, end_coords):
         if data["code"] == "Ok":
             return {
                 "geometry": data["routes"][0]["geometry"],
-                "distance": data["routes"][0]["distance"] / 1000,  # Convert to km
+                "distance": data["routes"][0]["distance"] / 1000, 
                 "duration": data["routes"][0]["duration"]
             }
     return None
@@ -205,14 +192,12 @@ def get_routes():
         num_puntos = int(data['num_puntos'])
         hora_actual = int(data.get('hour', datetime.now().hour))
         
-        # Obtener puntos y vertederos
         puntos_recoleccion, vertederos, _ = cargar_datos()
         vertedero_punto = next((v for v in vertederos if v['nombre'] == vertedero_nombre), None)
         
         if not vertedero_punto:
             return jsonify({'error': 'Vertedero no válido'}), 400
 
-        # Filtrar puntos
         dia_actual_en, _ = obtener_dia_hora_actual()
         dia_actual_es = dias_semana.get(dia_actual_en, "")
         puntos_filtrados = filtrar_puntos(puntos_recoleccion, dia_actual_es, hora_actual)
