@@ -9,12 +9,13 @@ import polyline
 app = Flask(__name__)
 
 db_config = {
-    'host': '127.0.0.1',
-    'user': 'root',
-    'password': 'mauricio',
-    'database': 'optimizacion_rutas'
+    'host': 'autorack.proxy.rlwy.net',  
+    'user': 'root',  
+    'password': 'gvdXiRmqgoBYEwMjwcxXEJfvuwNqBook',  
+    'database': 'db_routes',  
+    'port': 24304  
 }
-db_uri = f"mysql+mysqlconnector://{db_config['user']}:{db_config['password']}@{db_config['host']}/{db_config['database']}"
+db_uri = f"mysql+mysqlconnector://{db_config['user']}:{db_config['password']}@{db_config['host']}:{db_config['port']}/{db_config['database']}"
 
 def get_db_connection():
     try:
