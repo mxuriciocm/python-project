@@ -1,5 +1,5 @@
 var rutasLayerGroup;
-var map; // Declare map variable in the global scope
+var map;
 
 document.addEventListener('DOMContentLoaded', function() {
     map = L.map('map').setView([-12.0464, -77.0428], 13);
@@ -44,11 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Error fetching vertederos:', error));
 
-    // Update this fetch for trucks
     fetch('/api/camiones')
         .then(response => response.json())
         .then(data => {
-            console.log('Camiones recibidos:', data.camiones); // Debug log
+            console.log('Camiones recibidos:', data.camiones);
             const camionesContainer = document.getElementById('camiones-list');
             
             if (!camionesContainer) {
@@ -85,7 +84,7 @@ Rango: ${camion.rango_operacion} km`;
 var truckMarker = null;
 
 function calcularDistancia(lat1, lon1, lat2, lon2) {
-    const R = 6371; // Radius of the Earth in kilometers
+    const R = 6371;
     const dLat = (lat2 - lat1) * Math.PI / 180;
     const dLon = (lon2 - lon1) * Math.PI / 180;
     const a =
@@ -95,8 +94,6 @@ function calcularDistancia(lat1, lon1, lat2, lon2) {
 
     return R * 2 * Math.asin(Math.sqrt(a));
 }
-
-// ...existing code...
 
 function calcularRutas(vertedero, numPuntos) {
     limpiarRutas();
@@ -131,9 +128,7 @@ function calcularRutas(vertedero, numPuntos) {
                 // Decodificar usando mapbox polyline
                 const coordinates = window.polyline.decode(route.geometry);
                 
-                // Las coordenadas ya vienen en el formato correcto [lat, lng]
                 if (coordinates.length > 1) {
-                    // Dibujar la ruta siguiendo las calles
                     const routePolyline = L.polyline(coordinates, { 
                         color: 'blue', 
                         weight: 2.5, 
@@ -151,7 +146,6 @@ function calcularRutas(vertedero, numPuntos) {
                         .bindPopup(waypoint.name);
                     });
 
-                    // Colocar el camión en el primer punto de la ruta
                     displayStaticTruck(coordinates[0], route.camion, route.distancia_total);
                 }
             } catch (e) {
@@ -167,8 +161,6 @@ function calcularRutas(vertedero, numPuntos) {
         alert('Error al obtener la ruta');
     });
 }
-
-// ...existing code...
 
 function displayStaticTruck(position, truckInfo, distanciaTotal) {
     if (truckMarker) {
@@ -199,7 +191,7 @@ function displayStaticTruck(position, truckInfo, distanciaTotal) {
     `;
 
     truckMarker.bindPopup(popupContent);
-    truckMarker.openPopup(); // Mostrar el popup inmediatamente
+    truckMarker.openPopup();
 }
 
 function limpiarRutas() {
